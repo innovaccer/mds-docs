@@ -1,0 +1,15 @@
+{
+  "name": "gatsby-theme-mds",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn workspace site build",
+    "develop": "yarn workspace site develop"
+  },
+  "workspaces": [
+    "gatsby-theme-mds",
+    "site"
+  ]
+}
