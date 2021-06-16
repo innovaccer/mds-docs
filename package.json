@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "sed -i '' 's/boundaryElement: document.body/boundaryElement: {}/' node_modules/@innovaccer/design-system/dist/index.esm.js && yarn workspace site build",
+    "build": "sed -i 's/boundaryElement: document.body/boundaryElement: {}/' node_modules/@innovaccer/design-system/dist/index.esm.js && yarn workspace site build",
     "develop": "yarn workspace site develop"
   },
   "workspaces": [
