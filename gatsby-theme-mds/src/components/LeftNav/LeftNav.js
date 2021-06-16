@@ -4,14 +4,15 @@ import { Collapsible, VerticalNav } from "@innovaccer/design-system";
 import { navigate } from "gatsby"
 
 
-import NavContext from '../../util/context/NavContext';
+// import NavContext from '../../util/context/NavContext';
 
+const isBrowser = typeof window !== "undefined"
 
 const LeftNav = (props) => {
   const navItems = useNavItems();
   const [expanded, setExpanded] = React.useState(true);
   const [active, setActive] = React.useState({
-    link: window.location.pathname
+    link: isBrowser ? window.location.pathname : '/'
   });
 
   const onClickHandler = (menu) => {
