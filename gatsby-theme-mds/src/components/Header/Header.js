@@ -4,7 +4,6 @@ import { useHeaderItems } from '../../util/HeaderItems';
 
 const Header = () => {
   const items = useHeaderItems();
-  console.log(items)
   return (
     <div
       className="d-flex w-100 p-6 bg-light position-relative"
