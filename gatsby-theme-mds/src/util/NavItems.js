@@ -21,7 +21,7 @@ export function useNavItems(relativePagePath) {
     }
   `);
 
-  function getKey(nodes, relativePath) {
+  const getKey = (nodes, relativePath) => {
     const keys = nodes.map((elt) => {
       return elt.base;
     });
