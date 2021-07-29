@@ -30,7 +30,7 @@ const Tabs = (props) => {
                 </>
               }
             >
-              <div>{tab.data}</div>
+              <div>{<tab.data />}</div>
             </Tab>
           );
         })}
