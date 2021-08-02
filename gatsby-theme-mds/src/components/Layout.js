@@ -4,17 +4,19 @@ import "@fontsource/nunito-sans";
 import "@innovaccer/design-system/css";
 import { Row, Column } from '@innovaccer/design-system';
 import LeftNav from './LeftNav';
+import TableOfContent from './TableOfContent/TableOfContent';
 import Header from './Header';
 import Container from './Container';
 import { MDXProvider } from "@mdx-js/react"
 import * as DSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
+import '../css/style.css';
 
 const leftMenuList = [
   {
-    title: 'Gatsby Theme MDS'
-  }
-]
+    title: 'Gatsby Theme MDS',
+  },
+];
 
 const Layout = ({
   children,
@@ -24,11 +26,10 @@ const Layout = ({
   pageTitle,
   pageDescription,
   pageKeywords,
+  relativePagePath,
 }) => {
   const is404 = children.key === null;
-
   return (
-
     <>
       <Meta
         titleType={titleType}
@@ -39,14 +40,18 @@ const Layout = ({
       <Header leftMenuList={leftMenuList} />
       <Row style={{ height: 'calc(100vh - 52px)' }}>
         <LeftNav homepage={homepage} is404Page={is404} theme={theme} />
-        <Column className="overflow-auto h-100 p-6 bg-secondary-lightest">
-          <Container homepage={homepage} theme={theme} pageTitle={pageTitle}>
+        <Column className="h-100 p-6 mr-5">
+          <Container pageTitle={pageTitle}>
             <MDXProvider components={DSComponents}>{children}</MDXProvider>
           </Container>
         </Column>
-      </Row >
+        <TableOfContent
+          is404Page={is404}
+          relativePagePath={relativePagePath}
+          pageTitle={pageTitle}
+        />
+      </Row>
     </>
-
   );
 };
 
