@@ -9,6 +9,7 @@ import Container from './Container';
 import { MDXProvider } from "@mdx-js/react"
 import * as DSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
+import PropTable from './PropsTable/index';
 
 const leftMenuList = [
   {
@@ -28,7 +29,6 @@ const Layout = ({
   const is404 = children.key === null;
 
   return (
-
     <>
       <Meta
         titleType={titleType}
@@ -42,11 +42,11 @@ const Layout = ({
         <Column className="overflow-auto h-100 p-6 bg-secondary-lightest">
           <Container homepage={homepage} theme={theme} pageTitle={pageTitle}>
             <MDXProvider components={DSComponents}>{children}</MDXProvider>
+            <PropTable />
           </Container>
         </Column>
       </Row >
     </>
-
   );
 };
 
