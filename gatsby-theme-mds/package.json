@@ -21,7 +21,7 @@
   "dependencies": {
     "@fontsource/nunito": "^4.4.0",
     "@fontsource/nunito-sans": "^4.4.0",
-    "@innovaccer/design-system": "^2.1.2",
+    "@innovaccer/design-system": "latest",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "gatsby-plugin-mdx": "^2.6.0",
