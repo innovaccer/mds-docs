@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 
 export default ({ children }) => {
   return (
@@ -7,4 +6,4 @@ export default ({ children }) => {
       {children}
     </div>
   )
-}
+} 

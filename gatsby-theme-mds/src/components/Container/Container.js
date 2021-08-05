@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Heading } from '@innovaccer/design-system';
 
-const Container = ({ children, homepage, theme, pageTitle }) => {
+const Container = ({ children, pageTitle }) => {
   return (
     <>
       <Heading className="my-5">{pageTitle}</Heading>

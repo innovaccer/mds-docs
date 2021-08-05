@@ -7,26 +7,24 @@ import LeftNav from './LeftNav';
 import TableOfContent from './TableOfContent/TableOfContent';
 import Header from './Header';
 import Container from './Container';
-import { MDXProvider } from "@mdx-js/react"
+import { MDXProvider } from "@mdx-js/react";
 import * as DSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
 import '../css/style.css';
 
 const leftMenuList = [
   {
-    title: 'Gatsby Theme MDS',
-  },
+    title: 'Gatsby Theme MDS'
+  }
 ];
 
 const Layout = ({
   children,
-  homepage,
-  theme,
   titleType,
   pageTitle,
   pageDescription,
   pageKeywords,
-  relativePagePath,
+  relativePagePath
 }) => {
   const is404 = children.key === null;
   return (
@@ -39,8 +37,12 @@ const Layout = ({
       />
       <Header leftMenuList={leftMenuList} />
       <Row style={{ height: 'calc(100vh - 52px)' }}>
-        <LeftNav homepage={homepage} is404Page={is404} theme={theme} />
-        <Column className="h-100 p-6 mr-5">
+        <LeftNav
+          is404Page={is404}
+          relativePagePath={relativePagePath}
+          pageTitle={pageTitle}
+        />
+        <Column className="overflow-auto h-100 p-6 mr-5">
           <Container pageTitle={pageTitle}>
             <MDXProvider components={DSComponents}>{children}</MDXProvider>
           </Container>
