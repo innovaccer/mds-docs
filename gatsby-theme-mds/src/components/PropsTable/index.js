@@ -18,6 +18,7 @@ import {
   TabsWrapper,
   Tab,
   Heading,
+  Icon,
 } from '@innovaccer/design-system';
 import {
   LiveProvider,
@@ -95,8 +96,9 @@ const StoryComp = (props) => {
     ),
     beautifyHTMLOptions
   );
-  const [htmlCode, setHtmlCode] = React.useState(`${html}`);
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [htmlCode, setHtmlCode] = useState(`${html}`);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeButton, setActiveButton] = useState('React');
 
   const renderHTMLTab = () => {
     return (
@@ -107,7 +109,7 @@ const StoryComp = (props) => {
   };
 
   const renderCodeBlock = (val) => (
-    <div className="mt-8">
+    <div>
       <style>
         {`pre {
         margin: 0;
@@ -131,32 +133,22 @@ const StoryComp = (props) => {
   const CopyComp = (props) => {
     const { onClick } = props;
     return (
-      <div
-        style={{
-          position: 'absolute',
-          right: '10px',
-          top: '10px',
-          zIndex: 10,
-          height: '48px',
-          width: '60px',
-        }}
-        className="d-flex align-items-center justify-content-between"
-      >
+      <div className="ml-auto d-flex">
         <img
           src={logo}
-          className="codesandBox-icon"
+          className="codesandBox-icon mr-6 align-self-center"
           onClick={(e) => {
             e.preventDefault();
             openSandbox(jsxCode);
           }}
         />
-        <Button
-          appearance="transparent"
-          icon="content_copy"
-          largeIcon
+        <Icon
+          name="content_copy"
+          size={20}
+          appearance="white"
           onClick={onClick}
-          className="copy-button"
-        ></Button>
+          className="align-self-center cursor-pointer"
+        />
       </div>
     );
   };
@@ -170,11 +162,23 @@ const StoryComp = (props) => {
     setZoom(zoom - 0.5);
   };
 
+  const showLiveEditorContent = () => {
+    if (activeButton === 'React') {
+      return (
+        <div>
+          <LiveEditor theme={vsDark} />
+        </div>
+      );
+    } else {
+      return renderCodeBlock(htmlCode);
+    }
+  };
+
   const imports = React.useMemo(() => ({ ...DS }), []);
 
   return (
     <>
-      <div className="pt-8 pb-8 d-flex w-50 m-auto flex-column align-items-center">
+      <div className="pt-8 pb-8 d-flex w-75 m-auto flex-column align-items-center">
         <Heading className="mt-10 mb-6 align-self-start">
           Live Demo
         </Heading>
@@ -226,27 +230,41 @@ const StoryComp = (props) => {
               shadow="light"
               className="w-100 overflow-hidden mt-6 live-editor-card"
             >
-              <div className="DocPage-editorTabs">
-                <TabsWrapper
-                  activeTab={activeTab}
-                  onTabChange={(tab) => setActiveTab(tab)}
-                >
-                  <Tab label={<Button>React</Button>}>
-                    <div className="mt-8">
-                      <LiveEditor theme={vsDark} />
-                    </div>
-                  </Tab>
-                  {renderHTMLTab()}
-                </TabsWrapper>
+              <div>
+                <div className="d-flex px-4 pt-6">
+                  <Button
+                    appearance="basic"
+                    onClick={() => setActiveButton('React')}
+                    selected={
+                      activeButton === 'React'
+                        ? true
+                        : false
+                    }
+                    className="mr-3"
+                  >
+                    React
+                  </Button>
+                  <Button
+                    appearance="basic"
+                    onClick={() => setActiveButton('HTML')}
+                    selected={
+                      activeButton === 'HTML' ? true : false
+                    }
+                  >
+                    HTML
+                  </Button>
+                  <CopyComp
+                    onClick={() => {
+                      const editor = document.querySelector(
+                        '.npm__react-simple-code-editor__textarea'
+                      );
+                      if (editor) copyCode(editor.value);
+                    }}
+                  />
+                </div>
               </div>
-              <CopyComp
-                onClick={() => {
-                  const editor = document.querySelector(
-                    '.npm__react-simple-code-editor__textarea'
-                  );
-                  if (editor) copyCode(editor.value);
-                }}
-              />
+
+              {showLiveEditorContent()}
             </Card>
           )}
         </LiveProvider>

@@ -37,23 +37,31 @@ const Layout = ({
         pageKeywords={pageKeywords}
       />
       <Header leftMenuList={leftMenuList} />
-      <Row style={{ height: 'calc(100vh - 52px)' }}>
+      <Row className="vh-100">
         <LeftNav
           is404Page={is404}
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
         />
-        <Column className="overflow-auto h-100 p-6 mr-5">
+        <Column className="px-12 py-8">
           <Container pageTitle={pageTitle}>
-            <MDXProvider components={DSComponents}>{children}</MDXProvider>
+            <MDXProvider components={DSComponents}>
+              {children}
+            </MDXProvider>
             <PropTable />
           </Container>
         </Column>
-        <TableOfContent
-          is404Page={is404}
-          relativePagePath={relativePagePath}
-          pageTitle={pageTitle}
-        />
+
+        <Column
+          size={2}
+          className="pb-6 in-page-nav"
+        >
+          <TableOfContent
+            is404Page={is404}
+            relativePagePath={relativePagePath}
+            pageTitle={pageTitle}
+          />
+        </Column>
       </Row>
     </>
   );

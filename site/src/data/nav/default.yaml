@@ -1,12 +1,11 @@
 base: default
 menus:
-  - label: Getting started
-    link: /getting-started
-
-  - label: Contributions
-    link: /contributions
-
-  - label: Guides
+  - label: Get started
     subMenu:
-      - label: Authoring MDX
-        link: /guides/MDX
+      - label: Developers
+        link: /developers
+      - label: Designers
+        link: /designers
+
+  - label: What's new
+    link: /new

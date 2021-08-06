@@ -1,47 +1,5 @@
-/* badge */
-
-.Card {
-  border-radius: var(--spacing);
-  border: var(--spacing-xs) solid var(--secondary-light);
-  position: relative;
-  overflow: hidden;
-}
-
 .live-editor-card {
   background-color: rgb(30, 30, 30);
-}
-
-.Card--shadow-default,
-.Card--shadow-light,
-.Card--shadow-medium,
-.Card--shadow-dark {
-  border: none;
-  box-shadow: var(--shadow-s);
-}
-
-.Card-header {
-  padding: var(--spacing-2) var(--spacing-2)
-    var(--spacing-l) var(--spacing-2);
-}
-
-.Card-body {
-  padding-right: 0;
-  box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px;
-  text-align: left;
-}
-
-.Card-footer {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: var(--spacing-2);
-}
-
-.Card-footer--withSeperator {
-  border-top: var(--spacing-xs) solid var(--secondary-light);
 }
 
 .action-button {
@@ -57,55 +15,21 @@
   background: var(--secondary-dark) !important;
 }
 
-.DocPage-editorTabs .TabsWrapper-header {
-  margin-left: var(--spacing-l);
-}
-
 .live-preview {
   max-width: 100%;
   max-height: 100%;
   display: block;
 }
 
-i {
-  color: var(--white) !important;
-}
-
 .codesandBox-icon {
   cursor: pointer;
-  fill: var(--white) !important;
-}
-
-.Tab {
-  margin-right: 0;
-  margin-left: var(--spacing-m);
-}
-
-.Tab--active {
-  border-bottom: none;
-}
-
-.Tab:hover {
-  border-bottom: none;
-}
-
-.Tab--active Button {
-  background-color: var(--primary-lightest);
-  color: var(--primary);
+  fill: var(--white);
 }
 
 .copy-button:hover {
   background: transparent !important;
   border-radius: '0';
   border-bottom-left-radius: '6px';
-}
-
-.TabsWrapper-header {
-  border-bottom: none !important;
-}
-
-textarea {
-  background-color: #f4f4f4;
 }
 
 .transformation-button:hover {
