@@ -6,7 +6,7 @@ import { Row, Column } from '@innovaccer/design-system';
 import LeftNav from './LeftNav';
 import Header from './Header';
 import Container from './Container';
-import { MDXProvider } from "@mdx-js/react"
+import { MDXProvider } from "@mdx-js/react";
 import * as DSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
 import PropTable from './PropsTable/index';
@@ -15,16 +15,15 @@ const leftMenuList = [
   {
     title: 'Gatsby Theme MDS'
   }
-]
+];
 
 const Layout = ({
   children,
-  homepage,
-  theme,
   titleType,
   pageTitle,
   pageDescription,
   pageKeywords,
+  relativePagePath
 }) => {
   const is404 = children.key === null;
 
@@ -38,14 +37,18 @@ const Layout = ({
       />
       <Header leftMenuList={leftMenuList} />
       <Row style={{ height: 'calc(100vh - 52px)' }}>
-        <LeftNav homepage={homepage} is404Page={is404} theme={theme} />
-        <Column className="overflow-auto h-100 p-6 bg-secondary-lightest">
-          <Container homepage={homepage} theme={theme} pageTitle={pageTitle}>
+        <LeftNav
+          is404Page={is404}
+          relativePagePath={relativePagePath}
+          pageTitle={pageTitle}
+        />
+        <Column className="overflow-auto h-100 p-6 mr-5">
+          <Container pageTitle={pageTitle}>
             <MDXProvider components={DSComponents}>{children}</MDXProvider>
             <PropTable />
           </Container>
         </Column>
-      </Row >
+      </Row>
     </>
   );
 };

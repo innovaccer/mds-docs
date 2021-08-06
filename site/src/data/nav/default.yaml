@@ -1,0 +1,12 @@
+base: default
+menus:
+  - label: Getting started
+    link: /getting-started
+
+  - label: Contributions
+    link: /contributions
+
+  - label: Guides
+    subMenu:
+      - label: Authoring MDX
+        link: /guides/MDX
