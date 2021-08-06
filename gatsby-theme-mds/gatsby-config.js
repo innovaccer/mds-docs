@@ -1,8 +1,8 @@
 const path = require('path');
 
+const remarkSlug = require(`remark-slug`);
 
 module.exports = (themeOptions) => {
-
   const repositoryDefault = {
     baseUrl: '',
     subDirectory: '',
@@ -22,7 +22,6 @@ module.exports = (themeOptions) => {
     isServiceWorkerEnabled = false,
   } = themeOptions;
 
-
   const defaultRemarkPlugins = [
     { resolve: `gatsby-remark-unwrap-images` },
     { resolve: `gatsby-remark-smartypants` },
@@ -41,7 +40,6 @@ module.exports = (themeOptions) => {
     { resolve: `gatsby-remark-copy-linked-files` },
   ];
 
-
   return {
     siteMetadata: {
       isSearchEnabled,
@@ -54,7 +52,6 @@ module.exports = (themeOptions) => {
       repository: { ...repositoryDefault, ...repository },
     },
     plugins: [
-      `gatsby-transformer-yaml`,
       {
         resolve: `gatsby-source-filesystem`,
         name: `Nav`,
@@ -63,14 +60,22 @@ module.exports = (themeOptions) => {
         },
       },
       {
+        resolve: `gatsby-source-filesystem`,
+        name: 'pages',
+        options: {
+          path: path.resolve(`./src/pages`),
+        },
+      },
+      `gatsby-transformer-yaml`,
+      {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: mdxExtensions,
+          remarkPlugins: [remarkSlug],
           gatsbyRemarkPlugins: [
             ...defaultRemarkPlugins,
             ...gatsbyRemarkPlugins,
           ],
-          remarkPlugins,
           defaultLayouts: {
             default: require.resolve('./src/templates/Default.js'),
             home: require.resolve('./src/templates/Homepage.js'),

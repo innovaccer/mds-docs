@@ -4,12 +4,14 @@ import "@fontsource/nunito-sans";
 import "@innovaccer/design-system/css";
 import { Row, Column } from '@innovaccer/design-system';
 import LeftNav from './LeftNav';
+import TableOfContent from './TableOfContent/TableOfContent';
 import Header from './Header';
 import Container from './Container';
 import { MDXProvider } from "@mdx-js/react";
 import * as DSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
 import PropTable from './PropsTable/index';
+import '../css/style.css';
 
 const leftMenuList = [
   {
@@ -26,7 +28,6 @@ const Layout = ({
   relativePagePath
 }) => {
   const is404 = children.key === null;
-
   return (
     <>
       <Meta
@@ -48,6 +49,11 @@ const Layout = ({
             <PropTable />
           </Container>
         </Column>
+        <TableOfContent
+          is404Page={is404}
+          relativePagePath={relativePagePath}
+          pageTitle={pageTitle}
+        />
       </Row>
     </>
   );
