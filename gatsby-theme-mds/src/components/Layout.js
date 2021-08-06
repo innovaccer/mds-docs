@@ -10,6 +10,7 @@ import Container from './Container';
 import { MDXProvider } from "@mdx-js/react";
 import * as DSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
+import PropTable from './PropsTable/index';
 import '../css/style.css';
 
 const leftMenuList = [
@@ -45,6 +46,7 @@ const Layout = ({
         <Column className="overflow-auto h-100 p-6 mr-5">
           <Container pageTitle={pageTitle}>
             <MDXProvider components={DSComponents}>{children}</MDXProvider>
+            <PropTable />
           </Container>
         </Column>
         <TableOfContent

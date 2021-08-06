@@ -24,6 +24,7 @@
     "@innovaccer/design-system": "latest",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
+    "@storybook/theming": "^6.3.6",
     "gatsby-plugin-mdx": "^2.6.0",
     "gatsby-plugin-sharp": "^2.5.3",
     "gatsby-remark-copy-linked-files": "^2.2.1",
@@ -33,6 +34,12 @@
     "gatsby-remark-unwrap-images": "^1.0.1",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-yaml": "^2.3.1",
+    "lz-string": "^1.4.4",
+    "markdown-to-jsx": "^7.1.3",
+    "polished": "^4.1.3",
+    "react-live": "^2.3.0",
+    "react-scripts": "^4.0.3",
+    "react-syntax-highlighter": "^15.4.4",
     "remark-slug": "^6.1.0"
   }
 }
