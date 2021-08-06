@@ -1,25 +1,26 @@
 import { useStaticQuery, graphql } from 'gatsby';
+import { MOBILE } from '../util/constants';
 
 export function useNavItems(relativePagePath) {
-  const {
-    allNavYaml: { nodes },
-  } = useStaticQuery(graphql`
-    query LEFT_NAV_QUERY {
-      allNavYaml {
-        nodes {
-          base
-          menus {
-            label
-            link
-            subMenu {
+    const {
+      allNavYaml: { nodes },
+    } = useStaticQuery(graphql`
+      query LEFT_NAV_QUERY {
+        allNavYaml {
+          nodes {
+            base
+            menus {
               label
               link
+              subMenu {
+                label
+                link
+              }
             }
           }
         }
       }
-    }
-  `);
+    `);
 
   const getKey = (nodes, relativePath) => {
     const keys = nodes.map((elt) => {
@@ -46,7 +47,9 @@ export function useNavItems(relativePagePath) {
     return value;
   }
 
-  const pagePath = relativePagePath.replace('/', '').split('.')[0];
+  const pagePath = relativePagePath.includes(MOBILE)
+    ? relativePagePath.split('/')[2].replace('.mdx', '')
+    : relativePagePath.replace('/', '').split('.')[0];
 
   const navPage = getKey(nodes, pagePath);
 
@@ -54,18 +57,25 @@ export function useNavItems(relativePagePath) {
     return node.base === navPage;
   });
 
+
   const navItems = navData[0].menus.map((node) => {
-    const menu = { ...node, name: node.label };
+    const menu = {
+      ...node,
+      name: node.label,
+      link: relativePagePath.includes(MOBILE) ? `/mobile${node.link}` : node.link,
+    };
 
     if (menu.subMenu) {
       menu.subMenu = menu.subMenu.map((item) => {
         return {
           ...item,
           name: `${menu.name}.${item.label}`,
+          link: relativePagePath.includes(MOBILE)
+            ? `/mobile${item.link}`
+            : item.link,
         };
       });
     }
-
     return menu;
   });
   return navItems;
