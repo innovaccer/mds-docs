@@ -1,3 +1,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+.in-page-nav {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}

@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import { useNavItems } from '../../util/NavItems';
-import { Collapsible, VerticalNav } from '@innovaccer/design-system';
+import { Collapsible, VerticalNav, Subheading } from '@innovaccer/design-system';
 import { navigate } from 'gatsby';
 
 // import NavContext from '../../util/context/NavContext';
@@ -23,11 +23,13 @@ const LeftNav = (props) => {
   };
 
   return (
+    <div className="h-auto">
     <Collapsible
       expanded={expanded}
       onToggle={setExpanded}
       hoverable={false}
     >
+      <Subheading className="pt-5 pl-6 pb-3" appearance='subtle'>Introduction</Subheading>
       <VerticalNav
         menus={navItems}
         active={active}
@@ -36,6 +38,7 @@ const LeftNav = (props) => {
         autoCollapse={false}
       />
     </Collapsible>
+    </div>
   );
 };
 
