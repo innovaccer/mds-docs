@@ -9,3 +9,15 @@ menus:
 
   - label: What's new
     link: /new
+
+  - label: Contents
+    subMenu:
+      - label: Voice and tone guides
+        link: /contents/voice-and-tone-guidelines
+      - label: Button guidelines
+        link: /contents/button-guidelines
+
+  - label: Components
+    subMenu: 
+      - label: Overview
+        link: /components/overview
