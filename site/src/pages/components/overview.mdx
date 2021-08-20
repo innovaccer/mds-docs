@@ -1,0 +1,31 @@
+---
+title: Components
+description: Components are the reusable building blocks of our design system. Each component meets a specific interaction or UI need, and has been specifically created to work together to create patterns and intuitive user experiences.
+---
+
+Components are the reusable building blocks of our design system. Each component meets a specific interaction or UI need, and has been specifically created to work together to create patterns and intuitive user experiences.
+
+<TabsWrapper>
+    <Tab label="All components">
+        <br/>
+        <div style={{ width: 'var(--spacing-9)' }}>
+            <Input placeholder="Search components" icon="search" />
+        </div>
+    </Tab>
+    <Tab label="Status">
+        <br/>
+        <div style={{ width: 'var(--spacing-9)' }}>
+            <Input placeholder="Search components" icon="search" />
+        </div>
+        <br/>
+        <Card>
+            <Table
+                showMenu={false}
+                type="resource"
+                data={[{"name": "Avatar","design": "Available", "code":"Available" }, {"name": "Badges","design": "Available", "code":"Available" }, {"name": "Breadcrumb","design": "Available", "code":"Available" }, {"name": "Card","design": "Available", "code":"Unavailable" }, {"name": "Checkbox","design": "Beta", "code":"Unavailable" }, {"name": "Chips","design": "Available", "code":"Available" }, {"name": "Date and Time picker","design": "Available", "code":"Available" }, {"name": "Dropdown","design": "Available", "code":"Available" } ]}
+                schema={[{name: 'name',displayName: 'Component Name',width: '40%',cellType: 'WITH_META_LIST',sorting: false}, {name: 'design',displayName: 'Design',width: '30%',cellType: 'STATUS_HINT',sorting: false}, {name: 'code',displayName: 'Code',width: '30%',cellType: 'STATUS_HINT',sorting: false} ]}
+                withHeader={false}
+            />
+        </Card>
+    </Tab>
+</TabsWrapper>
