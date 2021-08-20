@@ -7,10 +7,10 @@ import LeftNav from './LeftNav';
 import TableOfContent from './TableOfContent/TableOfContent';
 import Header from './Header';
 import Container from './Container';
+import ComponentsContainer from './Container/ComponentsContainer';
 import { MDXProvider } from "@mdx-js/react";
 import * as DSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
-import PropTable from './PropsTable/index';
 import '../css/style.css';
 
 const leftMenuList = [
@@ -43,13 +43,27 @@ const Layout = ({
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
         />
-        <Column className="px-12 py-8">
-          <Container pageTitle={pageTitle}>
-            <MDXProvider components={DSComponents}>
-              {children}
-            </MDXProvider>
-            <PropTable />
-          </Container>
+        <Column className="overflow-auto h-100 p-6 mr-5">
+          {!relativePagePath.includes('components') && (
+            <Container
+              pageTitle={pageTitle}
+              relativePagePath={relativePagePath}
+            >
+              <MDXProvider components={DSComponents}>
+                {children}
+              </MDXProvider>
+            </Container>
+          )}
+          {relativePagePath.includes('components') && (
+            <ComponentsContainer
+              pageTitle={pageTitle}
+              relativePagePath={relativePagePath}
+            >
+              <MDXProvider components={DSComponents}>
+                {children}
+              </MDXProvider>
+            </ComponentsContainer>
+          )}
         </Column>
 
         <Column

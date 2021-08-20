@@ -72,20 +72,17 @@ const rows = {
   },
 };
 
-const StoryComp = (props) => {
+const StoryComp = ({
+  componentData,
+  showArgsTable = true,
+}) => {
   const testRef = useRef(null);
   const [zoom, setZoom] = useState(1);
 
   const [activeTab, setActiveTab] = React.useState(0);
 
   const [jsxCode, setJsxCode] = React.useState(
-    getRawPreviewCode(`() => {
-  return(
-    <Button>
-      Button
-    </Button>
-  );
-}`)
+    getRawPreviewCode(componentData)
   );
 
   const html = beautifyHTML(
@@ -154,7 +151,6 @@ const StoryComp = (props) => {
   };
 
   const handleZoomIn = () => {
-    console.log(testRef.current);
     setZoom(zoom + 0.5);
   };
 
@@ -178,10 +174,13 @@ const StoryComp = (props) => {
 
   return (
     <>
-      <div className="pt-8 pb-8 d-flex w-75 m-auto flex-column align-items-center">
-        <Heading className="mt-10 mb-6 align-self-start">
-          Live Demo
-        </Heading>
+      <div className="pt-8 pb-8 d-flex w-50 m-auto flex-column align-items-center">
+        {showArgsTable && (
+          <Heading className="mt-10 mb-6 align-self-start">
+            Live Demo
+          </Heading>
+        )}
+
         <LiveProvider code={jsxCode} scope={imports}>
           <Card
             shadow="light"
@@ -268,10 +267,14 @@ const StoryComp = (props) => {
             </Card>
           )}
         </LiveProvider>
-        <Heading className="mt-10 align-self-start">
-          Props
-        </Heading>
-        <ArgsTable rows={rows} />
+        {showArgsTable && (
+          <>
+            <Heading className="mt-10 align-self-start">
+              Props
+            </Heading>
+            <ArgsTable rows={rows} />
+          </>
+        )}
       </div>
     </>
   );
