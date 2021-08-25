@@ -13,7 +13,6 @@ import * as MDSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
 import '../css/style.css';
 
-
 const Code = ({ children, ...rest }) => {
   return (
     <>
@@ -50,14 +49,17 @@ const Layout = ({
         pageDescription={pageDescription}
         pageKeywords={pageKeywords}
       />
-      <Header leftMenuList={leftMenuList} />
+      <Header
+        leftMenuList={leftMenuList}
+        relativePagePath={relativePagePath}
+      />
       <Row className="vh-100">
         <LeftNav
           is404Page={is404}
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
         />
-        <Column className="overflow-auto h-100 p-6 mr-5">
+        <Column className="px-12 py-8" size={8}>
           {!relativePagePath.includes('components') && (
             <Container
               pageTitle={pageTitle}
