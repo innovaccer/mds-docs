@@ -1,0 +1,27 @@
+.paragraph {
+  color: var(--inverse-lighter);
+}
+
+.container {
+  border-radius: 4px 4px 0 0;
+  width: 196px;
+  height: 120px;
+  background: var(--secondary-lightest);
+}
+
+.image {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imgName {
+  color: var(--inverse);
+  font-size: 14px;
+}
+
+.card {
+  height: 184px;
+  width: 228px;
+}
