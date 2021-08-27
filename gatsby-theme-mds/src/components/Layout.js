@@ -38,7 +38,8 @@ const Layout = ({
   pageTitle,
   pageDescription,
   pageKeywords,
-  relativePagePath
+  relativePagePath,
+  showHeaderItems=true
 }) => {
   const is404 = children.key === null;
   return (
@@ -52,12 +53,14 @@ const Layout = ({
       <Header
         leftMenuList={leftMenuList}
         relativePagePath={relativePagePath}
+        showHeaderItems={showHeaderItems}
       />
-      <Row className="vh-100">
+      <Row className='vh-100'>
         <LeftNav
           is404Page={is404}
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
+          showHeaderItems={showHeaderItems}
         />
         <Column className="px-12 py-8" size={8}>
           {!relativePagePath.includes('components') && (

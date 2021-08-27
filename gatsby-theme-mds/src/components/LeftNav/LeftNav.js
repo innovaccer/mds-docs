@@ -8,7 +8,7 @@ import { MOBILE } from '../../util/constants';
 const isBrowser = typeof window !== 'undefined';
 
 const LeftNav = (props) => {
-  const { relativePagePath } = props;
+  const { relativePagePath, showHeaderItems } = props;
   let navItems = useNavItems(relativePagePath);
 
   const [expanded, setExpanded] = React.useState(true);
@@ -34,42 +34,54 @@ const LeftNav = (props) => {
   }
 
   return (
-    <div className="h-auto">
-    <Collapsible
-      expanded={expanded}
-      onToggle={setExpanded}
-      hoverable={false}
-    >
-      <Subheading className="pt-5 pl-6 pb-3" appearance='subtle'>Introduction</Subheading>
-      <div className="d-flex pt-5 pl-6 pb-3">
-        <Button
-          appearance="basic"
-          size="regular"
-          className="mr-4"
-          onClick={() => handleNavigate()}
-          selected={!relativePagePath.includes(MOBILE)}
-          expanded
-        >
-          Web
-        </Button>
-        <Button
-          appearance="basic"
-          onClick={() => handleNavigate(MOBILE)}
-          selected={relativePagePath.includes(MOBILE)}
-          className="mr-6"
-          expanded
-        >
-          Mobile
-        </Button>
-      </div>
-      <VerticalNav
-        menus={navItems}
-        active={active}
-        onClick={onClickHandler}
+    <div className='h-auto'>
+      <Collapsible
         expanded={expanded}
-        autoCollapse={false}
-      />
-    </Collapsible>
+        onToggle={setExpanded}
+        hoverable={false}
+      >
+        {showHeaderItems && (
+          <>
+            <Subheading
+              className='pt-5 pl-6 pb-3'
+              appearance='subtle'
+            >
+              Introduction
+            </Subheading>
+            <div className='d-flex pt-5 pl-6 pb-3'>
+              <Button
+                appearance='basic'
+                size='regular'
+                className='mr-4'
+                onClick={() => handleNavigate()}
+                selected={
+                  !relativePagePath.includes(MOBILE)
+                }
+                expanded
+              >
+                Web
+              </Button>
+              <Button
+                appearance='basic'
+                onClick={() => handleNavigate(MOBILE)}
+                selected={relativePagePath.includes(MOBILE)}
+                className='mr-6'
+                expanded
+              >
+                Mobile
+              </Button>
+            </div>
+          </>
+        )}
+
+        <VerticalNav
+          menus={navItems}
+          active={active}
+          onClick={onClickHandler}
+          expanded={expanded}
+          autoCollapse={false}
+        />
+      </Collapsible>
     </div>
   );
 };

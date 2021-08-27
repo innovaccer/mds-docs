@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@innovaccer/design-system';
 import { useHeaderItems } from '../../util/HeaderItems';
 
-const Header = ({ relativePagePath }) => {
+const Header = ({ relativePagePath, showHeaderItems = true }) => {
   const items = useHeaderItems();
   return (
     <div
@@ -12,27 +12,18 @@ const Header = ({ relativePagePath }) => {
       <Link href="/">
         Gatsby Theme MDS
       </Link>
-      <div className='ml-8' >
-        {items.map(({link, label}, index) => {
-          const isExternal = link.startsWith('http://') || link.startsWith('https://'); 
-          return (
-            <Link
-              appearance={
-                relativePagePath.includes(
-                  label.toLowerCase()
-                )
-                  ? 'default'
-                  : 'subtle'
-              }
-              href={link}
-              className="ml-6"
-              target={isExternal && '_blank'}
-            >
-              {label}
-            </Link>
-          );
-        })}
-      </div>
+      {showHeaderItems && (
+        <div className='ml-8' >
+          {items.map(({link, label}, index) => {
+             const isExternal = link.startsWith('http://') || link.startsWith('https://');
+            return (
+             <Link appearance="subtle" href={link} className="ml-6" target={isExternal && '_blank'}>
+                {label}
+              </Link>
+            )
+          }) }
+        </div>
+      )}
     </div>
   );
 };
