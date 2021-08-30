@@ -1,11 +1,20 @@
+- label: Introduction
+  link: /introduction/get-started/developers/
 
-- label: Guidelines
-  link: /guidelines
+- label: Foundations
+  link: /foundations/principles/
+
+- label: Content
+  link: /content/voice-and-tone-guidelines/
 
 - label: Components
-  link: /components
+  link: /components/overview/
+
+- label: Patterns
+  link: /patterns/
+
+- label: Resources
+  link: /resources/
 
 - label: Storybook
   link: https://innovaccer.github.io/design-system
-
-

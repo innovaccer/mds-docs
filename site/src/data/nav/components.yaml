@@ -1,8 +1,8 @@
 base: components
 menus:
   - label: Overview
-    link: /overview
+    link: /overview/
   - label: Avatars
-    link: /components/avatar
+    link: /components/avatar/
   - label: Buttons
-    link: /components/button
+    link: /components/button/
