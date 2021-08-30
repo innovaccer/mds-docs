@@ -1,9 +1,29 @@
 import React from "react";
+import Layout from '../components/Layout';
 
-export default ({ children }) => {
+export default ({
+  pageContext,
+  children,
+  showHeaderItems,
+  ...rest
+}) => {
+  const {
+    frontmatter = {},
+    titleType,
+    relativePagePath,
+  } = pageContext;
+  const { title, description, keywords, date } =
+    frontmatter;
   return (
-    <div>
+    <Layout
+      pageTitle={title}
+      titleType={titleType}
+      pageDescription={description}
+      pageKeywords={keywords}
+      relativePagePath={relativePagePath}
+      showHeaderItems={false}
+    >
       {children}
-    </div>
-  )
-} 
+    </Layout>
+  );
+};

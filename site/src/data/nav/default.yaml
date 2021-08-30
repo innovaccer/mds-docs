@@ -1,23 +1,58 @@
 base: default
 menus:
+  - label: What's new
+    link: /introduction/what's-new/
+
   - label: Get started
     subMenu:
       - label: Developers
-        link: /developers
+        link: /introduction/get-started/developers/
       - label: Designers
-        link: /designers
+        link: /introduction/get-started/designers/
 
-  - label: What's new
-    link: /new
-
-  - label: Contents
+  - label: Foundations
     subMenu:
-      - label: Voice and tone guides
-        link: /contents/voice-and-tone-guidelines
+      - label: Principles
+        link: /foundations/principles/
+
+      - label: Colors
+        link: /foundations/colors/
+
+      - label: Logos
+        link: /foundations/logos/
+
+      - label: Layout
+        link: /foundations/layout/
+
+      - label: Typography
+        link: /foundations/typography/
+
+      - label: Interactions
+        link: /foundations/interactions/
+
+      - label: Response Time
+        link: /foundations/response-time/
+
+  - label: Content
+    subMenu:
+      - label: Voice and tone guidelines
+        link: /content/voice-and-tone-guidelines/
+
       - label: Button guidelines
-        link: /contents/button-guidelines
+        link: /content/button-guidelines/
 
   - label: Components
-    subMenu: 
+    subMenu:
       - label: Overview
-        link: /components/overview
+        link: /components/overview/
+      - label: Buttons
+        link: /components/button/usage/
+
+  - label: Patterns
+    link: /patterns/
+
+  - label: Resources
+    link: /resources/
+
+  - label: Storybook
+    link: https://innovaccer.github.io/design-system

@@ -139,7 +139,7 @@ const Layout = ({
         />
         <Column style={{height: '100%', overflowY: 'scroll', scrollBehavior: 'smooth'}}>
           <Row>
-            <Column className="px-12 py-8" size={9}>
+             <Column className="px-12 py-8" size={9}>
               {!relativePagePath.includes('components') && (
                 <Container
                   pageTitle={pageTitle}
