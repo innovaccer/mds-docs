@@ -75,6 +75,7 @@ const rows = {
 const StoryComp = ({
   componentData,
   showArgsTable = true,
+  propData = {},
 }) => {
   const testRef = useRef(null);
   const [zoom, setZoom] = useState(1);
@@ -174,13 +175,7 @@ const StoryComp = ({
 
   return (
     <>
-      <div className="pt-8 pb-8 d-flex w-50 m-auto flex-column align-items-center">
-        {showArgsTable && (
-          <Heading className="mt-10 mb-6 align-self-start">
-            Live Demo
-          </Heading>
-        )}
-
+      <div className="pt-8 pb-8 d-flex w-100 m-auto flex-column align-items-center">
         <LiveProvider code={jsxCode} scope={imports}>
           <Card
             shadow="light"
@@ -193,7 +188,7 @@ const StoryComp = ({
                   icon="zoom_in"
                   appearance="transparent"
                   largeIcon
-                  className="transformation-button"
+                  className='transformation-button'
                 ></Button>
                 <Button
                   onClick={() => handleZoomOut()}
@@ -272,7 +267,7 @@ const StoryComp = ({
             <Heading className="mt-10 align-self-start">
               Props
             </Heading>
-            <ArgsTable rows={rows} />
+            <ArgsTable rows={propData} />
           </>
         )}
       </div>
