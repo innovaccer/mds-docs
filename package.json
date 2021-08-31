@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "sed -i.bak 's/boundaryElement: document.body/boundaryElement: {}/' node_modules/@innovaccer/design-system/dist/index.esm.js && yarn workspace site build",
-    "develop": "yarn workspace site develop"
+    "develop": "sed -i.bak 's/boundaryElement: document.body/boundaryElement: {}/' node_modules/@innovaccer/design-system/dist/index.esm.js && yarn workspace site develop",
+    "clean": "yarn workspace site gatsby clean"
   },
   "workspaces": [
     "gatsby-theme-mds",
