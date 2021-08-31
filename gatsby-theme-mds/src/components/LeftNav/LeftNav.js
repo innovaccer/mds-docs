@@ -23,23 +23,18 @@ const LeftNav = (props) => {
   };
 
   const handleNavigate = (name) => {
-    if(name === MOBILE) {
+    if (name === MOBILE) {
       navigate(`/mobile${window.location.pathname}`);
     } else {
       if (window.location.pathname.includes('/mobile')) {
         navigate(window.location.pathname.replace('/mobile', ''));
       }
-      
+
     }
   }
 
   return (
-    <div className="h-auto">
-    <Collapsible
-      expanded={expanded}
-      onToggle={setExpanded}
-      hoverable={false}
-    >
+    <div className="h-100 bg-secondary-lightest">
       <Subheading className="pt-5 pl-6 pb-3" appearance='subtle'>Introduction</Subheading>
       <div className="d-flex pt-5 pl-6 pb-3">
         <Button
@@ -69,7 +64,6 @@ const LeftNav = (props) => {
         expanded={expanded}
         autoCollapse={false}
       />
-    </Collapsible>
     </div>
   );
 };

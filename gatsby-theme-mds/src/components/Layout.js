@@ -53,45 +53,52 @@ const Layout = ({
         leftMenuList={leftMenuList}
         relativePagePath={relativePagePath}
       />
-      <Row className="vh-100">
+      <Row style={{ height: 'calc(100vh - 76px)' }}>
         <LeftNav
           is404Page={is404}
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
         />
-        <Column className="px-12 py-8" size={8}>
-          {!relativePagePath.includes('components') && (
-            <Container
-              pageTitle={pageTitle}
-              relativePagePath={relativePagePath}
+        <Column style={{height: '100%', overflowY: 'scroll'}}>
+          <Row>
+            <Column className="px-12 py-8" size={9}>
+              {!relativePagePath.includes('components') && (
+                <Container
+                  pageTitle={pageTitle}
+                  relativePagePath={relativePagePath}
+                >
+                  <MDXProvider components={DSComponents}>
+                    {children}
+                  </MDXProvider>
+                </Container>
+              )}
+              {relativePagePath.includes('components') && (
+                <ComponentsContainer
+                  pageTitle={pageTitle}
+                  relativePagePath={relativePagePath}
+                >
+                  <MDXProvider components={DSComponents}>
+                    {children}
+                  </MDXProvider>
+                </ComponentsContainer>
+              )}
+            </Column>
+
+            <Column
+              size={3}
+              className="pb-6 in-page-nav"
             >
-              <MDXProvider components={DSComponents}>
-                {children}
-              </MDXProvider>
-            </Container>
-          )}
-          {relativePagePath.includes('components') && (
-            <ComponentsContainer
-              pageTitle={pageTitle}
-              relativePagePath={relativePagePath}
-            >
-              <MDXProvider components={DSComponents}>
-                {children}
-              </MDXProvider>
-            </ComponentsContainer>
-          )}
+              <TableOfContent
+                is404Page={is404}
+                relativePagePath={relativePagePath}
+                pageTitle={pageTitle}
+              />
+            </Column>
+
+          </Row>
         </Column>
 
-        <Column
-          size={2}
-          className="pb-6 in-page-nav"
-        >
-          <TableOfContent
-            is404Page={is404}
-            relativePagePath={relativePagePath}
-            pageTitle={pageTitle}
-          />
-        </Column>
+
       </Row>
     </>
   );

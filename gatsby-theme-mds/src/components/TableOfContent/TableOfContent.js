@@ -44,7 +44,7 @@ const TableOfContent = (props) => {
   }
 
   return (
-    <div className="d-flex flex-column right-nav-container">
+    <div className="d-flex flex-column right-nav-container overflow-hidden">
       {navItems && navItems.length ? (
         <>
           <Subheading
