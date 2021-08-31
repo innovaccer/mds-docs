@@ -131,6 +131,16 @@ module.exports = (themeOptions) => {
           path: path.resolve(`./src/pages`),
         },
       },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `images`,
+          path: `./src/images`,
+        },
+      },
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
       `gatsby-transformer-yaml`,
       {
         resolve: `gatsby-plugin-mdx`,

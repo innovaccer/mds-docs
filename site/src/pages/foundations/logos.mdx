@@ -1,0 +1,73 @@
+---
+title: Logos
+description: Logos
+date: 15 June 2021
+---
+
+import LogoComp from '../../../../gatsby-theme-mds/src/components/LogoComp/LogoComp.js';
+
+# Organization
+
+export const ORGANIZATION_LOGOS = [
+  {
+    imgName: 'default',
+    name: 'Default',
+  },
+  {
+    imgName: 'withoutType',
+    name: 'Without Type',
+  },
+];
+
+export const PRODUCTS_LOGOS = [
+  {
+    imgName: 'incare',
+    name: 'InCare',
+  },
+  {
+    imgName: 'innote',
+    name: 'InNote',
+  },
+  {
+    imgName: 'ingraph',
+    name: 'InGraph',
+  },
+  {
+    imgName: 'inconnect',
+    name: 'InConnect',
+  },
+  {
+    imgName: 'indata',
+    name: 'InData',
+  },
+  {
+    imgName: 'inapi',
+    name: 'InApi',
+  },
+  {
+    imgName: 'inreport',
+    name: 'InReport',
+  },
+  {
+    imgName: 'dap',
+    name: 'Data Activation Platform',
+  },
+  {
+    imgName: 'inacademy',
+    name: 'InAcademy',
+  },
+  {
+    imgName: 'P360',
+    name: 'Patient 360',
+  },
+];
+
+<div className='d-flex flex-wrap pb-6'>
+  <LogoComp colorData={ORGANIZATION_LOGOS} />
+</div>
+
+# Products
+
+<div className='d-flex flex-wrap pb-6'>
+  <LogoComp colorData={PRODUCTS_LOGOS} />
+</div>
