@@ -14,6 +14,11 @@ import Meta from './Meta';
 import '../css/style.css';
 import PropsTable from '../components/PropsTable/index';
 import jsonData from '../util/componentsData/StorybookData.json';
+import Rules from './Rules/Rules';
+import DOs from './Rules/DOs';
+import DONTs from './Rules/DONTs';
+import InlineMessage from './Rules/InlineMessage';
+import IconWrapper from './Rules/IconWrapper';
 
 const Code = ({ children, ...rest }) => {
   return (
@@ -108,6 +113,11 @@ const Layout = ({
     code: Code,
     Preview: Preview,
     PreviewWithPropTable: PreviewWithPropTable,
+    Rules, 
+    DOs, 
+    DONTs, 
+    InlineMessage, 
+    IconWrapper
   };
   return (
     <>
