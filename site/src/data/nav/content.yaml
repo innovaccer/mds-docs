@@ -20,3 +20,6 @@ menus:
 
   - label: Placeholder text
     link: /content/placeholder-text/
+  
+  - label: Rules
+    link: /content/rules
