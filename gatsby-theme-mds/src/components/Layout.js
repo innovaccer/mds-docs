@@ -12,6 +12,8 @@ import { MDXProvider } from "@mdx-js/react";
 import * as MDSComponents from '@innovaccer/design-system';
 import Meta from './Meta';
 import '../css/style.css';
+import PropsTable from '../components/PropsTable/index';
+import jsonData from '../util/componentsData/StorybookData.json';
 
 const Code = ({ children, ...rest }) => {
   return (
@@ -23,8 +25,6 @@ const Code = ({ children, ...rest }) => {
     </>
   )
 };
-
-const DSComponents = { ...MDSComponents, code: Code }
 
 const leftMenuList = [
   {
@@ -38,9 +38,77 @@ const Layout = ({
   pageTitle,
   pageDescription,
   pageKeywords,
-  relativePagePath
+  relativePagePath,
+  component,
+  tabs
 }) => {
   const is404 = children.key === null;
+
+  function getJsxCode(name) {
+    let keys = Object.keys(jsonData).filter((key) =>
+      key.includes(pageTitle.toLowerCase())
+    );
+
+    const variantName = keys.filter((elt) =>
+      elt.includes(name)
+    );
+
+    const jsxCode = variantName.length
+      ? jsonData[variantName[0]].parameters.storySource
+          .source
+      : '';
+    return jsxCode;
+  }
+
+  function getPropTableData(name) {
+    let keys = Object.keys(jsonData).filter((key) =>
+      key.includes(pageTitle.toLowerCase())
+    );
+
+    const variantName = keys.filter((elt) =>
+      elt.includes(name)
+    );
+
+    const jsxCode = variantName.length
+      ? jsonData[variantName[0]].parameters.argTypes
+      : '';
+    return jsxCode;
+  }
+
+  const Preview = ({ children, name, ...rest }) => {
+    return (
+      <>
+        <div {...rest}>{children}</div>
+        <PropsTable
+          componentData={getJsxCode(name)}
+          showArgsTable={false}
+        />
+      </>
+    );
+  };
+
+  const PreviewWithPropTable = ({
+    children,
+    name,
+    ...rest
+  }) => {
+    return (
+      <>
+        <div {...rest}>{children}</div>
+        <PropsTable
+          componentData={getJsxCode(name)}
+          propData={getPropTableData(name)}
+        />
+      </>
+    );
+  };
+
+  const DSComponents = {
+    ...MDSComponents,
+    code: Code,
+    Preview: Preview,
+    PreviewWithPropTable: PreviewWithPropTable,
+  };
   return (
     <>
       <Meta
@@ -59,7 +127,7 @@ const Layout = ({
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
         />
-        <Column style={{height: '100%', overflowY: 'scroll'}}>
+        <Column style={{height: '100%', overflowY: 'scroll', scrollBehavior: 'smooth'}}>
           <Row>
             <Column className="px-12 py-8" size={9}>
               {!relativePagePath.includes('components') && (
@@ -76,6 +144,9 @@ const Layout = ({
                 <ComponentsContainer
                   pageTitle={pageTitle}
                   relativePagePath={relativePagePath}
+                  component={component}
+                  tabs={tabs}
+                  pageDescription={pageDescription}
                 >
                   <MDXProvider components={DSComponents}>
                     {children}
@@ -94,11 +165,8 @@ const Layout = ({
                 pageTitle={pageTitle}
               />
             </Column>
-
           </Row>
         </Column>
-
-
       </Row>
     </>
   );

@@ -1,67 +1,65 @@
-import React from 'react';
-import { Card, Heading } from '@innovaccer/design-system';
-import PropsTable from '../PropsTable';
-import jsonData from '../../util/componentsData/StorybookData.json';
+import React, { useEffect } from 'react';
 import {
-  buttonVariants,
-  avatarVariants,
-} from '../../util/constants';
+  Heading,
+  Tabs,
+  Tab
+} from '@innovaccer/design-system';
+import { navigate } from 'gatsby';
 
 const ComponentsContainer = ({
   children,
   pageTitle,
   relativePagePath,
+  tabs,
+  pageDescription,
 }) => {
-  const mdxNodes = children.props.children[0];
-
-  let keys, variants;
-
-  if (relativePagePath.includes('button')) {
-    keys = Object.keys(jsonData).filter((key) =>
-      key.includes('button')
-    );
-    variants = buttonVariants;
-  } else if (relativePagePath.includes('avatar')) {
-    keys = Object.keys(jsonData).filter((key) =>
-      key.includes('avatar')
-    );
-    variants = avatarVariants;
-  }
-
-  let count = 0;
-
-  function getJsxCode() {
-    const variantName = keys.filter((elt) =>
-      elt.includes(variants[count])
-    );
-    count++;
-    const jsxCode = variantName.length
-      ? jsonData[variantName[0]].parameters.storySource
-          .source
+  const page = relativePagePath.split('/');
+  const pageName = page[page.length - 1].split('.')[0];
+  const activeTab =
+    tabs && tabs.length
+      ? tabs.findIndex(
+          (tab) =>
+            tab.toLowerCase() === pageName.toLowerCase()
+        )
       : '';
-    return jsxCode;
-  }
+
+  const [activeIndex, setActiveIndex] = React.useState(
+    activeTab || 0
+  );
+
+  const getTabSlug = (tabIndex) => {
+    const tabSlug = tabs[tabIndex]
+      .toLowerCase()
+      .replace(' ', '-');
+    return tabSlug;
+  };
+
+  const onTabChangeHandler = (tabIndex) => {
+    const tabSlug = getTabSlug(tabIndex);
+    const pagePath = relativePagePath.replace(
+      tabs[activeIndex].toLowerCase(),
+      tabSlug
+    );
+    navigate(`${pagePath.replace('.mdx', '')}/`);
+    setActiveIndex(tabIndex);
+  };
 
   return (
     <>
-      <Heading className="my-5">{pageTitle}</Heading>
-      <Card className="p-6">
-        {mdxNodes &&
-          mdxNodes.length &&
-          mdxNodes.map((elt) => {
-            return (
-              <>
-                {elt !== 'Preview' && elt}
-                {elt && elt === 'Preview' && (
-                  <PropsTable
-                    componentData={getJsxCode()}
-                    showArgsTable={false}
-                  />
-                )}
-              </>
-            );
-          })}
-      </Card>
+      <Heading>{pageTitle}</Heading>
+      <p>{pageDescription}</p>
+      {tabs && tabs.length && (
+        <Tabs
+          activeIndex={activeIndex}
+          onTabChange={onTabChangeHandler}
+          className='mb-6'
+        >
+          {tabs.map((tab) => (
+            <Tab label={tab}></Tab>
+          ))}
+        </Tabs>
+      )}
+      {children}
     </>
   );
 };
