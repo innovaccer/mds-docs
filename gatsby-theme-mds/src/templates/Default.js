@@ -14,6 +14,7 @@ export default ({ pageContext, children, ...rest }) => {
       relativePagePath={relativePagePath}
       component={component}
       tabs={tabs}
+      {...rest}
     >
       {children}
       <LastModifiedDate date={date} />
