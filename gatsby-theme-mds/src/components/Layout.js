@@ -19,6 +19,7 @@ import DOs from './Rules/DOs';
 import DONTs from './Rules/DONTs';
 import InlineMessage from './Rules/InlineMessage';
 import IconWrapper from './Rules/IconWrapper';
+import Footer from './Footer/Footer';
 
 const Code = ({ children, ...rest }) => {
   return (
@@ -176,6 +177,7 @@ const Layout = ({
               />
             </Column>
           </Row>
+          <Footer relativePagePath={relativePagePath} />
         </Column>
       </Row>
     </>
