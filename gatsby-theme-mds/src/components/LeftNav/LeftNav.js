@@ -1,6 +1,9 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import { useNavItems } from '../../util/NavItems';
-import { Collapsible, VerticalNav, Subheading, Button } from '@innovaccer/design-system';
+import {
+  VerticalNav,
+  Input,
+} from '@innovaccer/design-system';
 import { navigate } from 'gatsby';
 import { MOBILE } from '../../util/constants';
 // import NavContext from '../../util/context/NavContext';
@@ -10,7 +13,6 @@ const isBrowser = typeof window !== 'undefined';
 const LeftNav = (props) => {
   const { relativePagePath } = props;
   let navItems = useNavItems(relativePagePath);
-
   const [expanded, setExpanded] = React.useState(true);
   const [active, setActive] = React.useState({
     link: isBrowser ? window.location.pathname : '/',
@@ -34,29 +36,14 @@ const LeftNav = (props) => {
   }
 
   return (
-    <div className="h-100 bg-secondary-lightest">
-      <Subheading className="pt-5 pl-6 pb-3" appearance='subtle'>Introduction</Subheading>
-      <div className="d-flex pt-5 pl-6 pb-3">
-        <Button
-          appearance="basic"
-          size="regular"
-          className="mr-4"
-          onClick={() => handleNavigate()}
-          selected={!relativePagePath.includes(MOBILE)}
-          expanded
-        >
-          Web
-        </Button>
-        <Button
-          appearance="basic"
-          onClick={() => handleNavigate(MOBILE)}
-          selected={relativePagePath.includes(MOBILE)}
-          className="mr-6"
-          expanded
-        >
-          Mobile
-        </Button>
-      </div>
+    <div className='h-100 bg-secondary-lightest'>
+      <Input
+        icon='search'
+        name='input'
+        className='my-6 ml-5 w-75'
+        minWidth={"230px"}
+        placeholder='Search for patterns, content..'
+      />
       <VerticalNav
         menus={navItems}
         active={active}
