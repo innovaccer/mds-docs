@@ -132,7 +132,7 @@ const Layout = ({
         leftMenuList={leftMenuList}
         relativePagePath={relativePagePath}
       />
-      <Row style={{ height: 'calc(100vh - 76px)' }}>
+      <Row style={{ height: 'calc(100vh - 48px)' }}>
         <LeftNav
           is404Page={is404}
           relativePagePath={relativePagePath}
@@ -140,7 +140,7 @@ const Layout = ({
         />
         <Column style={{height: '100%', overflowY: 'scroll', scrollBehavior: 'smooth'}}>
           <Row>
-            <Column className="px-12 py-8" size={9}>
+            <Column className="px-12 py-8 min-vh-100" size={9}>
               {!relativePagePath.includes('components') && (
                 <Container
                   pageTitle={pageTitle}
