@@ -1,0 +1,8 @@
+html {
+  font-family: var(--font);
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
