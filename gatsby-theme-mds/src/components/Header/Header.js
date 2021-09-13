@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, Heading, Input } from '@innovaccer/design-system';
+import { Link } from 'gatsby';
+import { Heading } from '@innovaccer/design-system';
 import { useHeaderItems } from '../../util/HeaderItems';
 import logo from '../../../../site/src/images/default.png';
 import './Header.css';
@@ -10,7 +11,7 @@ const Header = ({ relativePagePath }) => {
     <div
       className='header'
     >
-      <Link href='/' className='pl-6 header-link'>
+      <Link to='/' className='pl-6 HeaderLink'>
         <img src={logo} />
       </Link>
       <Heading
@@ -27,20 +28,19 @@ const Header = ({ relativePagePath }) => {
             link.startsWith('https://');
           return (
             <Link
-              appearance={
+              to={link}
+              className={`HeaderLink ${
                 relativePagePath.includes(
                   label.toLowerCase()
                 )
-                  ? 'default'
-                  : 'subtle'
-              }
-              href={link}
-              className={`ml-8 header-link ${
-                relativePagePath.includes(
-                  label.toLowerCase()
-                )
-                  ? 'header-link__active'
+                  ? 'HeaderLink--active'
                   : ''
+              } ${
+                relativePagePath.includes(
+                  label.toLowerCase()
+                )
+                  ? 'HeaderLink--active'
+                  : 'HeaderLink--default'
               }`}
               target={isExternal && '_blank'}
             >

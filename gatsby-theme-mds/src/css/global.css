@@ -5,3 +5,7 @@ html {
 * {
   box-sizing: border-box;
 }
+
+.border-right {
+  border-right: var(--border);
+}

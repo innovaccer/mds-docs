@@ -1,9 +1,8 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React from 'react';
 import { useNavItems } from '../../util/NavItems';
-import { Collapsible, VerticalNav, Subheading, Button } from '@innovaccer/design-system';
+import { VerticalNav, Subheading, Button } from '@innovaccer/design-system';
 import { navigate } from 'gatsby';
 import { MOBILE } from '../../util/constants';
-// import NavContext from '../../util/context/NavContext';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -17,7 +16,6 @@ const LeftNav = (props) => {
   });
 
   const onClickHandler = (menu) => {
-    console.log('menu-clicked: ', menu);
     navigate(menu.link);
     setActive(menu);
   };
@@ -39,7 +37,7 @@ const LeftNav = (props) => {
   }
 
   return (
-    <div className="h-100 bg-secondary-lightest">
+    <div className="h-100 bg-secondary-lightest border-right">
       <div className="d-flex py-6 pl-6">
         <Button
           appearance="basic"

@@ -143,7 +143,7 @@ const Layout = ({
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
         />
-        <Column style={{height: '100%', overflowY: 'scroll', scrollBehavior: 'smooth'}}>
+        <Column className="page-animation" style={{height: '100%', overflowY: 'scroll', scrollBehavior: 'smooth'}}>
           <Row>
             <Column className="px-12 py-8 min-vh-100" size={9}>
               {!relativePagePath.includes('components') && (
