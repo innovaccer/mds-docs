@@ -2,7 +2,7 @@
 import React, { useLayoutEffect } from 'react';
 import "@fontsource/nunito-sans";
 import "@innovaccer/design-system/css";
-import { Row, Column, Card, Button } from '@innovaccer/design-system';
+import { Row, Column, Heading, Button } from '@innovaccer/design-system';
 import LeftNav from './LeftNav';
 import TableOfContent from './TableOfContent/TableOfContent';
 import Header from './Header';
@@ -46,7 +46,8 @@ const Layout = ({
   pageKeywords,
   relativePagePath,
   component,
-  tabs
+  tabs,
+  ...rest
 }) => {
   const is404 = children.key === null;
 
@@ -114,11 +115,16 @@ const Layout = ({
     code: Code,
     Preview: Preview,
     PreviewWithPropTable: PreviewWithPropTable,
-    Rules, 
-    DOs, 
-    DONTs, 
-    InlineMessage, 
-    IconWrapper
+    Rules,
+    DOs,
+    DONTs,
+    InlineMessage,
+    IconWrapper,
+    h1: (props) => <Heading size='xxl' {...props} />,
+    h2: (props) => <Heading size='xl' {...props} />,
+    h3: (props) => <Heading size='l' {...props} />,
+    h4: (props) => <Heading size='m' {...props} />,
+    h5: (props) => <Heading size='s' {...props} />,
   };
   return (
     <>
@@ -174,6 +180,7 @@ const Layout = ({
                 is404Page={is404}
                 relativePagePath={relativePagePath}
                 pageTitle={pageTitle}
+                location={rest.location}
               />
             </Column>
           </Row>

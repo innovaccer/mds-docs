@@ -31,7 +31,6 @@ export function useNavItems(relativePagePath) {
         return node;
       }
     })
-    .map(({ node }) => node.headings);
-
-  return headings.length ? headings[0] : [];
+    .map(({ node }) => node.tableOfContents);
+  return headings.length ? headings[0].items : [];
 }

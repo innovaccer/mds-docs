@@ -10,7 +10,7 @@ const isBrowser = typeof window !== 'undefined';
 const LeftNav = (props) => {
   const { relativePagePath } = props;
   let navItems = useNavItems(relativePagePath);
-
+  
   const [expanded, setExpanded] = React.useState(true);
   const [active, setActive] = React.useState({
     link: isBrowser ? window.location.pathname : '/',
@@ -33,10 +33,14 @@ const LeftNav = (props) => {
     }
   }
 
+  const getHeading = () => {
+    const componentName = relativePagePath && relativePagePath.split('/')[1];
+    return componentName.toUpperCase();
+  }
+
   return (
     <div className="h-100 bg-secondary-lightest">
-      <Subheading className="pt-5 pl-6 pb-3" appearance='subtle'>Introduction</Subheading>
-      <div className="d-flex pt-5 pl-6 pb-3">
+      <div className="d-flex py-6 pl-6">
         <Button
           appearance="basic"
           size="regular"
@@ -57,6 +61,7 @@ const LeftNav = (props) => {
           Mobile
         </Button>
       </div>
+      <Subheading className="pl-6 pb-3" appearance='subtle'>{getHeading()}</Subheading>
       <VerticalNav
         menus={navItems}
         active={active}

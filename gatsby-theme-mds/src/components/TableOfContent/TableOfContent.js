@@ -1,45 +1,61 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavItems } from '../../util/InPageNavItems';
 import { Subheading } from '@innovaccer/design-system';
 import './TableOfContent.css';
 
 const TableOfContent = (props) => {
-  const { relativePagePath } = props;
+  const { relativePagePath, location } = props;
   let navItems = useNavItems(relativePagePath);
   const [active, setActive] = React.useState('');
 
-  const onClickHandler = (item) => {
-    setActive(item);
+  let tocLevelCount = 1;
+
+  const onClickHandler = (itemUrl) => {
+    setActive(itemUrl);
   };
 
-  const createSlug = (name) => {
-    return `#${name
-      .toLowerCase()
-      .replace(/[^a-z0-9 -]/g, '')
-      .replace(/\s/g, '-')
-      .replace(/-+/g, '-')}`;
-  };
+  useEffect(() => {
+    let urlHash = '';
+    if (location && location.hash) {
+      urlHash = location.hash;
+    }
+    setActive(urlHash);
+  }, []);
 
-  function renderItems(items) {
+  function setPadding(isChild) {
+    if (!isChild) {
+      return '16px';
+    } else if (isChild) {
+      return `${tocLevelCount * 16}px`;
+    }
+  }
+
+  function renderItems(items, isChild = false) {
     return (
-      <div className="table-of-content">
-        {items.map((item) => (
-          <div className="mb-6">
-            <a
-              href={createSlug(item.value)}
-              onClick={() => onClickHandler(item.value)}
-              className={
-                active === item.value ? 'active-link' : ''
-              }
-              style={{
-                paddingLeft: `${item.depth * 20}px`,
-              }}
-            >
-              {item.value}
-            </a>
-          </div>
-        ))}
-      </div>
+        <ul className='table-of-content-list pr-8'>
+          {items.map((item) => {
+            return (
+              <li>
+                <a
+                  href={item.url}
+                  onClick={() => onClickHandler(item.url)}
+                  className={`toc-link ${
+                    active == item.url ? 'active-link' : ''
+                  }`}
+                  style={{
+                    paddingLeft: setPadding(isChild,),
+                    display: `${item.title ? 'inline-block' : 'none'}`,
+                  }}
+                >
+                  {item.title}
+                </a>
+                {item.items &&
+                  (tocLevelCount++,
+                  renderItems(item.items, true))}
+              </li>
+            );
+          })}
+        </ul>
     );
   }
 
@@ -49,7 +65,7 @@ const TableOfContent = (props) => {
         <>
           <Subheading
             appearance="subtle"
-            className="pl-6 mt-10 mb-6"
+            className="pl-6 mt-10"
           >
             CONTENTS
           </Subheading>
@@ -63,3 +79,4 @@ const TableOfContent = (props) => {
 };
 
 export default TableOfContent;
+ 
