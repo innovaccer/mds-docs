@@ -1,22 +1,30 @@
 import React from 'react';
-import { Link, Heading } from '@innovaccer/design-system';
+import { Link, Heading, Input } from '@innovaccer/design-system';
 import { useHeaderItems } from '../../util/HeaderItems';
 import logo from '../../../../site/src/images/default.png';
+import './Header.css';
 
 const Header = ({ relativePagePath }) => {
   const items = useHeaderItems();
   return (
     <div
-      className="d-flex w-100 p-6 bg-light position-sticky align-items-center"
-      style={{ boxShadow: "0px 10px 5px -10px rgb(0 0 0 / 16%)", boxSizing: 'border-box', zIndex: 1000, top: 0 }}
+      className='header'
     >
-      <Link href="/">
-        <img src= {logo} />
+      <Link href='/' className='pl-6 header-link'>
+        <img src={logo} />
       </Link>
-      <Heading size='s' className='ml-8' appearance='subtle' >Masala Design System</Heading>
-      <div className='ml-6' >
-        {items.map(({link, label}, index) => {
-          const isExternal = link.startsWith('http://') || link.startsWith('https://'); 
+      <Heading
+        size='xs'
+        className='ml-8'
+        appearance='subtle'
+      >
+        Masala Design System
+      </Heading>
+      <div >
+        {items.map(({ link, label }, index) => {
+          const isExternal =
+            link.startsWith('http://') ||
+            link.startsWith('https://');
           return (
             <Link
               appearance={
@@ -27,7 +35,13 @@ const Header = ({ relativePagePath }) => {
                   : 'subtle'
               }
               href={link}
-              className="ml-6"
+              className={`ml-8 header-link ${
+                relativePagePath.includes(
+                  label.toLowerCase()
+                )
+                  ? 'header-link__active'
+                  : ''
+              }`}
               target={isExternal && '_blank'}
             >
               {label}
@@ -35,6 +49,12 @@ const Header = ({ relativePagePath }) => {
           );
         })}
       </div>
+      {/* <Input
+        className='w-25 flex-grow-0 ml-auto'
+        icon='search'
+        name='input'
+        placeholder='Search components, patterns, principles...'
+      /> */}
     </div>
   );
 };

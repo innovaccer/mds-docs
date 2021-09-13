@@ -1,0 +1,28 @@
+.header {
+  border-bottom: 1px solid var(--secondary);
+  z-index: 1000;
+  top: 0;
+  display: flex;
+  width: 100%;
+  padding: var(--spacing-s);
+  position: sticky;
+  align-items: center;
+}
+
+.header-link {
+  color: var(--inverse);
+  font-weight: var(--font-weight-normal);
+  padding: var(--spacing) 0;
+}
+
+.header-link:hover {
+  border-bottom: none !important;
+}
+
+.header-link:focus {
+  box-shadow: none !important;
+}
+
+.header-link__active {
+  color: var(--primary);
+}
