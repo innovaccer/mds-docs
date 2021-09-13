@@ -1,15 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  overflow-y: hidden;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 .in-page-nav {
   position: sticky;
   top: 0;

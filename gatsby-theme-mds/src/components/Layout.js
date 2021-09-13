@@ -1,7 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React, { useLayoutEffect } from 'react';
 import "@fontsource/nunito-sans";
-import "@innovaccer/design-system/css";
 import { Row, Column, Heading, Button } from '@innovaccer/design-system';
 import LeftNav from './LeftNav';
 import TableOfContent from './TableOfContent/TableOfContent';
