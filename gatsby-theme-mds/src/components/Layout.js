@@ -48,7 +48,7 @@ const Layout = ({
   tabs,
   ...rest
 }) => {
-  const is404 = children.key === null;
+  const is404 = children && children.key === null;
 
   function getJsxCode(name) {
     let keys = Object.keys(jsonData).filter((key) =>

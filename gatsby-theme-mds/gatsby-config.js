@@ -111,8 +111,8 @@ module.exports = (themeOptions) => {
       isServiceWorkerEnabled,
       title: 'Gatsby Theme MDS',
       description:
-        'Add a description by supplying it to siteMetadata in your gatsby-config.js file.',
-      keywords: 'gatsby,theme,MDS,design',
+        'Documentation site for using Innovaccer Masala Design System.',
+      keywords: 'gatsby,theme,MDS,masala,design,system, masala design system,style,guide,component,library,design system,styleguide',
       lang: 'en',
       repository: { ...repositoryDefault, ...repository },
     },

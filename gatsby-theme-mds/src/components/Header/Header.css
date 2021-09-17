@@ -4,7 +4,7 @@
   top: 0;
   display: flex;
   width: 100%;
-  padding: var(--spacing-s);
+  padding: var(--spacing-s) var(--spacing-2);
   position: sticky;
   align-items: center;
 }

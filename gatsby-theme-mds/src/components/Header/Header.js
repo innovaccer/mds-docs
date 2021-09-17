@@ -11,7 +11,7 @@ const Header = ({ relativePagePath }) => {
     <div
       className='header'
     >
-      <Link to='/' className='pl-6 HeaderLink'>
+      <Link to='/' className='HeaderLink ml-0'>
         <img src={logo} />
       </Link>
       <Heading
