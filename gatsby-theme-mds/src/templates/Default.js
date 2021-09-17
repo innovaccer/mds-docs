@@ -17,7 +17,6 @@ export default ({ pageContext, children, ...rest }) => {
       {...rest}
     >
       {children}
-      <LastModifiedDate date={date} />
     </Layout>
   );
 };
