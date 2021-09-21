@@ -1,13 +1,13 @@
 base: content
 menus:
   - label: Voice and tone guidelines
-    link: /content/voice-and-tone-guidelines/
+    link: /content/voice-and-tone-guidelines/voice-and-tone/
 
   - label: House rules
     link: /content/house-rules/
 
   - label: Button guidelines
-    link: /content/button-guidelines/
+    link: /content/button-guidelines/confusing-buttons/
 
   - label: Email guidelines
     link: /content/email-guidelines/
@@ -20,6 +20,6 @@ menus:
 
   - label: Placeholder text
     link: /content/placeholder-text/
-  
+
   - label: Rules
     link: /content/rules
