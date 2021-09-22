@@ -150,6 +150,8 @@ const Layout = ({
                 <Container
                   pageTitle={pageTitle}
                   relativePagePath={relativePagePath}
+                  tabs={tabs}
+                  pageDescription={pageDescription}
                 >
                   <MDXProvider components={DSComponents}>
                     {children}

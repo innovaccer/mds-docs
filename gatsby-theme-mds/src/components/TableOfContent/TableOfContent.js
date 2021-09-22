@@ -32,40 +32,46 @@ const TableOfContent = (props) => {
 
   function renderItems(items, isChild = false) {
     return (
-        <ul className='table-of-content-list pr-8'>
-          {items.map((item) => {
-            return (
-              <li>
+      <ul className='table-of-content-list pr-8'>
+        {items.map((item) => {
+          return (
+            <li>
+              <div
+                className={`${
+                  active == item.url ? 'active-link' : ''
+                }`}
+              >
                 <a
                   href={item.url}
                   onClick={() => onClickHandler(item.url)}
-                  className={`toc-link ${
-                    active == item.url ? 'active-link' : ''
-                  }`}
+                  className={`toc-link `}
                   style={{
-                    paddingLeft: setPadding(isChild,),
-                    display: `${item.title ? 'inline-block' : 'none'}`,
+                    paddingLeft: setPadding(isChild),
+                    display: `${
+                      item.title ? 'inline-block' : 'none'
+                    }`,
                   }}
                 >
                   {item.title}
                 </a>
-                {item.items &&
-                  (tocLevelCount++,
-                  renderItems(item.items, true))}
-              </li>
-            );
-          })}
-        </ul>
+              </div>
+              {item.items &&
+                (tocLevelCount++,
+                renderItems(item.items, true))}
+            </li>
+          );
+        })}
+      </ul>
     );
   }
 
   return (
-    <div className="d-flex flex-column right-nav-container overflow-hidden">
+    <div className='d-flex flex-column right-nav-container overflow-hidden'>
       {navItems && navItems.length ? (
         <>
           <Subheading
-            appearance="subtle"
-            className="pl-6 mt-10"
+            appearance='subtle'
+            className='pl-6 mt-10'
           >
             CONTENTS
           </Subheading>
@@ -79,4 +85,3 @@ const TableOfContent = (props) => {
 };
 
 export default TableOfContent;
- 
