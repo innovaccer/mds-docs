@@ -1,14 +1,14 @@
 .Rules-Container {
-    background-color: var(--secondary-lightest);
-    border-radius: 4px;
+  background-color: var(--secondary-lightest);
+  border-radius: var(--spacing-m);
 }
 
 .Rules-Dont {
-    border-top: var(--spacing-s) solid var(--alert);
-    border-top-right-radius: 4px;
+  border-top: var(--spacing-s) solid var(--alert);
+  border-top-right-radius: var(--spacing-m);
 }
 
 .Rules-Do {
-    border-top: var(--spacing-s) solid var(--success);
-    border-top-left-radius: 4px;
+  border-top: var(--spacing-s) solid var(--success);
+  border-top-left-radius: var(--spacing-m);
 }

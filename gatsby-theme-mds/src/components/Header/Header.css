@@ -1,5 +1,4 @@
 .header {
-  border-bottom: 1px solid var(--secondary);
   z-index: 1000;
   top: 0;
   display: flex;
@@ -7,6 +6,7 @@
   padding: var(--spacing-s) var(--spacing-2);
   position: sticky;
   align-items: center;
+  border-bottom: var(--border);
 }
 
 .HeaderLink:hover {

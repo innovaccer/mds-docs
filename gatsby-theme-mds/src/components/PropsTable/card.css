@@ -6,7 +6,7 @@
   background: var(--secondary-dark);
   font-size: var(--font-size-m);
   border: var(--spacing-xs) solid var(--secondary-light);
-  border-radius: 4px;
+  border-radius: var(--spacing-m);
   position: relative;
   right: 14px;
 }
