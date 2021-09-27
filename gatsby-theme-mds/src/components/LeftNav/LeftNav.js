@@ -1,6 +1,10 @@
 import React from 'react';
 import { useNavItems } from '../../util/NavItems';
-import { VerticalNav, Subheading, Button } from '@innovaccer/design-system';
+import {
+  VerticalNav,
+  Subheading,
+  Button,
+} from '@innovaccer/design-system';
 import { navigate } from 'gatsby';
 import { MOBILE } from '../../util/constants';
 
@@ -11,8 +15,33 @@ const LeftNav = (props) => {
   let navItems = useNavItems(relativePagePath);
   
   const [expanded, setExpanded] = React.useState(true);
+
+  let activeMenu;
+
+  function getActiveNavItem() {
+    if (
+      isBrowser &&
+      window.location.pathname &&
+      window.location.pathname.includes('tabs')
+    ) {
+      activeMenu = navItems.filter((item) => {
+        if (item.link && item.link.includes('tabs')) {
+          const url =
+            window.location.pathname.split('tabs');
+          if (item.link.includes(url[0])) {
+            return item.link;
+          }
+        }
+      });
+      return activeMenu[0].link;
+    } else {
+      return window.location.pathname;
+    }
+  }
+
+  const activeLink = isBrowser ? getActiveNavItem() : '';
   const [active, setActive] = React.useState({
-    link: isBrowser ? window.location.pathname : '/',
+    link: activeLink,
   });
 
   const onClickHandler = (menu) => {
@@ -25,16 +54,18 @@ const LeftNav = (props) => {
       navigate(`/mobile${window.location.pathname}`);
     } else {
       if (window.location.pathname.includes('/mobile')) {
-        navigate(window.location.pathname.replace('/mobile', ''));
+        navigate(
+          window.location.pathname.replace('/mobile', '')
+        );
       }
-
     }
-  }
+  };
 
   const getHeading = () => {
-    const componentName = relativePagePath && relativePagePath.split('/')[1];
+    const componentName =
+      relativePagePath && relativePagePath.split('/')[1];
     return componentName.toUpperCase();
-  }
+  };
 
   return (
     <div className="h-100 bg-secondary-lightest border-right">
