@@ -56,7 +56,7 @@ const Text = styled.span<{ simple?: boolean }>(
   })
 );
 
-const ExpandButton = styled.button<{}>(({ theme }) => ({
+const ExpandButton = styled.button<{}>(() => ({
   fontFamily: theme.typography.fonts.mono,
   color: theme.color.secondary,
   marginBottom: '4px',
