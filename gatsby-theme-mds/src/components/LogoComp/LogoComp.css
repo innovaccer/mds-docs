@@ -19,6 +19,7 @@
 .imgName {
   color: var(--inverse);
   font-size: 14px;
+  font-weight: var(--font-weight-medium);
 }
 
 .card {
