@@ -6,7 +6,7 @@ const ColorComp = (props) => {
   const { colorData } = props;
   return colorData.map((elt) => {
     return (
-      <Card className='mr-7 mt-7 card'>
+      <Card className='mr-7 mt-7' shadow='none'>
         <CardBody>
           <div
             style={{
@@ -15,7 +15,7 @@ const ColorComp = (props) => {
             className='mt-6 container'
           ></div>
           <p>{elt.name} </p>
-          <div className='d-flex'>
+          <div className='d-flex mb-7'>
             <div className='mr-auto'>
               <p className='my-2 paragraph'>Hex</p>
               <span className='hexcode'>{elt.hexCode}</span>

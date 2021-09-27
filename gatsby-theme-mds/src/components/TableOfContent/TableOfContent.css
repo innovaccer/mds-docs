@@ -21,7 +21,7 @@
 
 .table-of-content-list {
   list-style: none;
-  padding-left: 0;
+  padding-left: 16px;
 }
 
 .active-link::before {

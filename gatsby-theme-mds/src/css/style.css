@@ -20,3 +20,21 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
+.list {
+  margin-top: var(--spacing-m);
+}
+
+.list > li {
+  list-style: none;
+  margin-bottom: var(--spacing-2);
+  margin-left: var(--spacing-s);
+}
+
+.list li::before {
+  content: '\2022';
+  width: 2px;
+  display: inline-block;
+  color: var(--inverse-lightest);
+  margin-right: var(--spacing-l);
+}

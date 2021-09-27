@@ -6,42 +6,42 @@ date: 15 June 2021
 
 Motion helps in conveying action and hierarchy. It can bring the screen to life, guide users through complex experiences, and help move them forward—from now to next and start to finish. These guidelines are based on the Carbon Design System
 
-# Style
+#### Style
 
 Productivity and expression are both essential to an interface. Reserve expressive motion for occasional, important moments, to better capture the user’s attention and offer a rhythmic break to the productive experience.
 Hence there are two styles of motion - Productive motion and Expressive motion.
 
-## Productive motion
+##### Productive motion
 
 Productive motion is appropriate for moments when the user needs to focus on completing tasks. Micro-interactions such as button states, dropdowns, revealing additional information, or rendering data tables and visualisations can be designed with productive motion.
 
 **Graph**
 
-## Expressive motion
+##### Expressive motion
 
 Expressive motion is appropriate for moments such as opening a new page, clicking the primary action button, or when the movement itself conveys a meaning. System alerts and the appearance of notification boxes are great cases for expressive motion.
 
-# Easing
+#### Easing
 
 Elements on the screen should speed up quickly and slow down smoothly, obeying the physics of a light-weight material. “Easing curves” describe the precise amount of accelerations in motion. There are three types of easing curves -
 
-## Standard easing
+##### Standard easing
 
 Use standard-easing when an element is visible from the beginning to the end of a motion. Expanding card and the sorting of table rows are good examples.
 
 **Graph**
 
-## Entrance easing
+##### Entrance easing
 
 With this style, an element quickly appears and slows down to a stop. Use entrance-ease when adding elements to the view, such as a modal or toast appearing. Elements moving in response to the user’s input, such as a dropdown opening or toggle switching should also use this style.
 
-## Exit easing
+##### Exit easing
 
 Use exit-easing when removing elements from view, such as closing a modal or toaster. The element speeds up as it exits from view, implying that its departure from the screen is permanent.
 
 An exception to exits: if an element leaves the view but stays nearby, ready to reappear upon user action, use standard easing instead. A good example of this is a reveal. The reveal leaves the view, but slows down as it exits, implying that it would come to rest just outside the view, and ready to be recalled.
 
-<Card class='w-75'>
+<Card shadow='none'>
   <Table
     showMenu={false}
     separator={true}
@@ -79,13 +79,18 @@ An exception to exits: if an element leaves the view but stays nearby, ready to 
   />
 </Card>
 
-# Duration
+<br />
+<br />
+
+#### Duration
 
 Duration is calculated based on the style and size of the motion. Among the two motion styles, productive motion is significantly faster than expressive motion. Motion’s duration should be dynamic based on the size of the animation; the larger the change in distance (traveled) or size (scaling) of the element, the longer the animation takes.
 
-## Duration values
+##### Duration values
 
-<Card class='w-75'>
+<br />
+
+<Card shadow='none'>
   <Table
     showMenu={false}
     separator={true}

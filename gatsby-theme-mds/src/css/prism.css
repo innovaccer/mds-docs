@@ -2,11 +2,11 @@
  * Add back the container background-color, border-radius, padding, margin
  * and overflow that we removed from <pre>.
  */
- .gatsby-highlight {
+.gatsby-highlight {
   border-radius: var(--spacing);
-  border: var(--spacing-xs) solid var(--secondary-light);
+  border: var(--spacing-xs) solid var(--secondary-lightest);
   position: relative;
-  background-color: var(--white);
+  background-color: var(--secondary-light);
   margin: 0.5em 0;
   padding: 1em;
   overflow: auto;
@@ -19,7 +19,7 @@
  * 2. Always fill the visible space in .gatsby-highlight.
  * 3. Adjust the position of the line numbers
  */
-.gatsby-highlight pre[class*="language-"] {
+.gatsby-highlight pre[class*='language-'] {
   background-color: transparent;
   margin: 0;
   padding: 0;
@@ -28,4 +28,13 @@
   min-width: 100%; /* 2 */
   display: flex;
   justify-content: space-between;
+  color: var(--inverse);
+}
+
+.language-shell {
+  color: var(--inverse);
+}
+
+.token {
+  color: var(--inverse) !important;
 }

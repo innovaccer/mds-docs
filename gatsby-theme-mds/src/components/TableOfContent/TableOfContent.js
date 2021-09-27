@@ -22,14 +22,6 @@ const TableOfContent = (props) => {
     setActive(urlHash);
   }, []);
 
-  function setPadding(isChild) {
-    if (!isChild) {
-      return '16px';
-    } else if (isChild) {
-      return `${tocLevelCount * 16}px`;
-    }
-  }
-
   function renderItems(items, isChild = false) {
     return (
       <ul className='table-of-content-list pr-8'>
@@ -46,7 +38,6 @@ const TableOfContent = (props) => {
                   onClick={() => onClickHandler(item.url)}
                   className={`toc-link `}
                   style={{
-                    paddingLeft: setPadding(isChild),
                     display: `${
                       item.title ? 'inline-block' : 'none'
                     }`,

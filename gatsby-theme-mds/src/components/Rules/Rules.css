@@ -1,6 +1,9 @@
 .Rules-Container {
   background-color: var(--secondary-lightest);
   border-radius: var(--spacing-m);
+  pointer-events: none;
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
 }
 
 .Rules-Dont {
