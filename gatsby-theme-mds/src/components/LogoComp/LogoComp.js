@@ -10,7 +10,7 @@ import {
   GatsbyImage,
   getImage,
 } from 'gatsby-plugin-image';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const LogoComp = (props) => {
   const {
@@ -44,7 +44,7 @@ const LogoComp = (props) => {
     return (
       <Card className='mr-7 mt-7 card'>
         <CardBody>
-          <div className='mt-6 container'>
+          <div className='mt-6 container p-8'>
             <GatsbyImage
               image={image}
               alt={'test'}
@@ -53,11 +53,13 @@ const LogoComp = (props) => {
           </div>
           <div className='d-flex align-items-center'>
             <p className='imgName mr-auto'>{elt.name} </p>
-            <Icon
-              size={16}
-              name='download'
-              className='mr-3'
-            />
+            <Link href={image.images.fallback.src} download>
+              <Icon
+                size={16}
+                name='download'
+                className='mr-3 imgName'
+              />
+            </Link>
           </div>
         </CardBody>
       </Card>
