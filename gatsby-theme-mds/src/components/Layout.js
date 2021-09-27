@@ -31,6 +31,14 @@ const Code = ({ children, ...rest }) => {
   )
 };
 
+const List = ({children, ...rest}) => {
+  return (
+    <div className='list'>
+      {children}
+    </div>
+  )
+}
+
 const leftMenuList = [
   {
     title: 'Gatsby Theme MDS'
@@ -124,6 +132,7 @@ const Layout = ({
     h3: (props) => <Heading size='l' {...props} />,
     h4: (props) => <Heading size='m' {...props} />,
     h5: (props) => <Heading size='s' {...props} />,
+    ul: List
   };
   return (
     <>

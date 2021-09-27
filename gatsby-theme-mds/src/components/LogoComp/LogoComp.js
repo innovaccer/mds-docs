@@ -42,7 +42,7 @@ const LogoComp = (props) => {
       );
     }
     return (
-      <Card className='mr-7 mt-7 card'>
+      <Card className='mr-7 mt-7' shadow='none'>
         <CardBody>
           <div className='mt-6 container p-8'>
             <GatsbyImage
