@@ -6,13 +6,13 @@
 
 @keyframes fadeInAnimation {
   0% {
-      opacity: 0.25;
-      margin-top: 2px;
+    opacity: 0.25;
+    margin-top: 2px;
   }
   100% {
-      opacity: 1;
-      margin-top: 0;
-   }
+    opacity: 1;
+    margin-top: 0;
+  }
 }
 
 .page-animation {
@@ -37,4 +37,11 @@
   display: inline-block;
   color: var(--inverse-lightest);
   margin-right: var(--spacing-l);
+}
+
+.toast {
+  position: fixed;
+  left: 20px;
+  bottom: 70px;
+  z-index: 1;
 }

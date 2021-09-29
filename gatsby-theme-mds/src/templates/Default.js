@@ -4,7 +4,7 @@ import LastModifiedDate from '../components/LastModifiedDate';
 
 export default ({ pageContext, children, ...rest }) => {
   const { frontmatter = {}, titleType, relativePagePath } = pageContext;
-  const { title, description, keywords, date, component, tabs } = frontmatter;
+  const { title, description, keywords, date, component, tabs, logos } = frontmatter;
   return (
     <Layout
       pageTitle={title}
@@ -14,6 +14,7 @@ export default ({ pageContext, children, ...rest }) => {
       relativePagePath={relativePagePath}
       component={component}
       tabs={tabs}
+      logos={logos}
       {...rest}
     >
       {children}
