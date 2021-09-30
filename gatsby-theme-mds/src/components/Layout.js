@@ -1,7 +1,13 @@
 /* eslint-disable import/no-unresolved */
-import React, { useLayoutEffect } from 'react';
-import "@fontsource/nunito-sans";
-import { Row, Column, Heading, Button } from '@innovaccer/design-system';
+import React, { useState } from 'react';
+import '@fontsource/nunito-sans';
+import {
+  Row,
+  Column,
+  Heading,
+  Button,
+  Toast,
+} from '@innovaccer/design-system';
 import LeftNav from './LeftNav';
 import TableOfContent from './TableOfContent/TableOfContent';
 import Header from './Header';
@@ -19,6 +25,7 @@ import DONTs from './Rules/DONTs';
 import InlineMessage from './Rules/InlineMessage';
 import IconWrapper from './Rules/IconWrapper';
 import Footer from './Footer/Footer';
+import ProductLogos from '../components/Logos/Logos';
 
 const Code = ({ children, ...rest }) => {
   return (
@@ -54,9 +61,12 @@ const Layout = ({
   relativePagePath,
   component,
   tabs,
+  logos,
   ...rest
 }) => {
   const is404 = children && children.key === null;
+  const [showToast, setShowToast] = useState(false);
+  const [imageName, setImageName] = useState(false);
 
   function getJsxCode(name) {
     let keys = Object.keys(jsonData).filter((key) =>
@@ -117,6 +127,22 @@ const Layout = ({
     );
   };
 
+  const toggleToast = (name) => {
+    setShowToast(true);
+    setImageName(name);
+  }
+
+  const Logos = ({ children, logoData, ...rest }) => {
+    return (
+      <div className='d-flex flex-wrap pb-6 mb-8'>
+        <ProductLogos
+          logoData={logoData}
+          toggleToast={toggleToast}
+        />
+      </div>
+    );
+  };
+
   const DSComponents = {
     ...MDSComponents,
     code: Code,
@@ -132,7 +158,8 @@ const Layout = ({
     h3: (props) => <Heading size='l' {...props} />,
     h4: (props) => <Heading size='m' {...props} />,
     h5: (props) => <Heading size='s' {...props} />,
-    ul: List
+    ul: List,
+    Logos: (props) => <Logos {...props} />,
   };
   return (
     <>
@@ -161,6 +188,7 @@ const Layout = ({
                   relativePagePath={relativePagePath}
                   tabs={tabs}
                   pageDescription={pageDescription}
+                  logos={logos}
                 >
                   <MDXProvider components={DSComponents}>
                     {children}
@@ -194,6 +222,14 @@ const Layout = ({
               />
             </Column>
           </Row>
+          {showToast && (
+            <Toast
+              appearance='success'
+              title={`Downloading ${imageName}`}
+              className='toast'
+              onClose={() => setShowToast(false)}
+            />
+          )}
           <Footer relativePagePath={relativePagePath} />
         </Column>
       </Row>

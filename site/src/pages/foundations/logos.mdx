@@ -2,11 +2,23 @@
 title: Logos
 description: Logos are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
 date: 15 June 2021
+logos:
+  [
+    'dap',
+    'default',
+    'inacademy',
+    'inapi',
+    'incare',
+    'inconnect',
+    'indata',
+    'ingraph',
+    'innote',
+    'inoffice',
+    'inreport',
+    'P360',
+    'withoutType',
+  ]
 ---
-
-import LogoComp from '../../../../gatsby-theme-mds/src/components/LogoComp/LogoComp.js';
-
-#### Organization
 
 export const ORGANIZATION_LOGOS = [
   {
@@ -62,12 +74,10 @@ export const PRODUCTS_LOGOS = [
   },
 ];
 
-<div className='d-flex flex-wrap pb-6 mb-8'>
-  <LogoComp colorData={ORGANIZATION_LOGOS} />
-</div>
+#### Organization
+
+<Logos logoData={ORGANIZATION_LOGOS} />
 
 #### Products
 
-<div className='d-flex flex-wrap pb-6'>
-  <LogoComp colorData={PRODUCTS_LOGOS} />
-</div>
+<Logos logoData={PRODUCTS_LOGOS} />

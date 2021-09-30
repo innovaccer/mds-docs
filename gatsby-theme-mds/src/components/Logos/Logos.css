@@ -21,3 +21,9 @@
   font-size: 14px;
   font-weight: var(--font-weight-medium);
 }
+
+.download-logos {
+  position: absolute !important;
+  right: 100px;
+  top: 60px;
+}
