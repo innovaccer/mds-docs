@@ -22,7 +22,7 @@ The Masala Design System provides front-end developers & engineers a collection 
 
 Run the following command using npm to add the component library to your project.
 
-```shell
+```
 npm install @innovaccer/design-system
 ```
 
@@ -34,7 +34,7 @@ As this component library is part of a framework-agnostic design system used at 
 
 Import style at your app's root.
 
-```shell
+```
 import '@innovaccer/design-system/css';
 ```
 
@@ -44,7 +44,7 @@ import '@innovaccer/design-system/css';
 
 The css sets the font family as 'Nunito Sans' for the body. To add this font in your project you need to load this font. The recommended way to do it is by adding the following google font cdn link to your app's head.
 
-```shell
+```
 <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 ```
 
@@ -56,7 +56,7 @@ The css sets the font family as 'Nunito Sans' for the body. To add this font in 
 
 If you don't add the font described above font family will not be affected by css. However, if you want to update the font family update it via the following css variable.
 
-```shell
+```
 --font-family
 ```
 
@@ -70,7 +70,7 @@ As BEM is used reset.css is not used and no style reset is done.
 
 For css variables to work on IE we use a polyfill at runtime to achieve dynamic theming through variables. Please add the following polyfill in your page.
 
-```shell
+```
 <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
 <script>
   cssVars({
@@ -85,7 +85,7 @@ For css variables to work on IE we use a polyfill at runtime to achieve dynamic 
 
 Available components along with live code editor and API documentation can be found here. Components can be imported as mentioned below.
 
-```javascript
+```
 {
 ...
 Avatar,
@@ -103,7 +103,7 @@ Breadcrumb,
 
 <br />
 
-```shell
+```
 #clone repository
 git clone https://github.com/innovaccer/design-system.git
 

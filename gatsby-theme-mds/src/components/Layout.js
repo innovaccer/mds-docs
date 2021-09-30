@@ -27,15 +27,29 @@ import IconWrapper from './Rules/IconWrapper';
 import Footer from './Footer/Footer';
 import ProductLogos from '../components/Logos/Logos';
 
+const copyToClipboard = (str) => {
+  const el = document.createElement('textarea');
+  el.value = str;
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
+
+
 const Code = ({ children, ...rest }) => {
   return (
     <>
-      <div {...rest}>
-        {children}
-      </div>
-      <Button icon="copy" />
+      <div {...rest}>{children}</div>
+      <Button
+        icon='copy'
+        onClick={() => copyToClipboard(children)}
+      />
     </>
-  )
+  );
 };
 
 const List = ({children, ...rest}) => {
