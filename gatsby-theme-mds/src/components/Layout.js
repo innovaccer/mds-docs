@@ -28,17 +28,20 @@ import Footer from './Footer/Footer';
 import ProductLogos from '../components/Logos/Logos';
 
 const copyToClipboard = (str) => {
-  const el = document.createElement('textarea');
-  el.value = str;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
+  let codeBlock = '';
+  if (Array.isArray(str)) {
+    str.map((elt) => {
+      if (typeof elt === 'object') {
+        codeBlock = codeBlock + elt.props.children;
+      } else {
+        codeBlock = codeBlock + elt;
+      }
+    });
+  } else {
+    codeBlock = str;
+  }
+  navigator.clipboard.writeText(codeBlock);
 };
-
 
 const Code = ({ children, ...rest }) => {
   return (
