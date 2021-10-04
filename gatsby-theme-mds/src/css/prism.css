@@ -28,13 +28,4 @@
   min-width: 100%; /* 2 */
   display: flex;
   justify-content: space-between;
-  color: var(--inverse);
-}
-
-.language-shell {
-  color: var(--inverse);
-}
-
-.token {
-  color: var(--inverse) !important;
 }
