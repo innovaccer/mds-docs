@@ -1,0 +1,18 @@
+.container {
+  border-radius: var(--spacing-m);
+}
+
+.copy-clipboard {
+  color: var(--white);
+  background: var(--inverse-light);
+  padding: var(--spacing-m);
+  border-radius: var(--spacing-m);
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.underline {
+  text-decoration: underline;
+}

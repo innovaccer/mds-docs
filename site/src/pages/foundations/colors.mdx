@@ -4,8 +4,6 @@ description: Maintaining consistent and engaging digital interfaces, whether app
 date: 15 June 2021
 ---
 
-import ColorComp from '../../../../gatsby-theme-mds/src/components/ColorComp/ColorComp.js';
-
 export const PRIMARY_COLORS = [
   {
     name: 'Jal - Darker',
@@ -16,31 +14,31 @@ export const PRIMARY_COLORS = [
   {
     name: 'Jal - Dark',
     backgroundColor: 'var(--primary-dark)',
-    hexCode: '#003365',
+    hexCode: '#00509F',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Default',
     backgroundColor: 'var(--primary)',
-    hexCode: '#003365',
+    hexCode: '#0070DD',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Light',
     backgroundColor: 'var(--primary-light)',
-    hexCode: '#003365',
+    hexCode: '#4F9DE7',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lighter',
     backgroundColor: 'var(--primary-lighter)',
-    hexCode: '#003365',
+    hexCode: '#97C5F0',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lightest',
     backgroundColor: 'var(--primary-lightest)',
-    hexCode: '#003365',
+    hexCode: '#DCECF9',
     colorCode: 'rgb(0, 51, 101)',
   },
 ];
@@ -49,76 +47,76 @@ export const ALERT_COLORS = [
   {
     name: 'Jal - Darker',
     backgroundColor: 'var(--alert-darker)',
-    hexCode: '#003365',
+    hexCode: '#631919',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Dark',
     backgroundColor: 'var(--alert-dark)',
-    hexCode: '#003365',
+    hexCode: '#9C2828',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Default',
     backgroundColor: 'var(--alert)',
-    hexCode: '#003365',
+    hexCode: '#D93737',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Light',
     backgroundColor: 'var(--alert-light)',
-    hexCode: '#003365',
+    hexCode: '#EB776C',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lighter',
     backgroundColor: 'var(--alert-lighter)',
-    hexCode: '#003365',
+    hexCode: '#F7ADA5',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lightest',
     backgroundColor: 'var(--alert-lightest)',
-    hexCode: '#003365',
+    hexCode: '#F9E2E2',
     colorCode: 'rgb(0, 51, 101)',
   },
 ];
 
 export const WARNING_COLORS = [
   {
-    name: 'Jal - Darker',
+    name: 'Haldi - Darker',
     backgroundColor: 'var(--warning-darker)',
-    hexCode: '#003365',
+    hexCode: '#6B4A06',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Jal - Dark',
+    name: 'Haldi - Dark',
     backgroundColor: 'var(--warning-dark)',
-    hexCode: '#003365',
+    hexCode: '#B78707',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Jal - Default',
+    name: 'Haldi - Default',
     backgroundColor: 'var(--warning)',
-    hexCode: '#003365',
+    hexCode: '#FFC208',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Jal - Light',
+    name: 'Haldi - Light',
     backgroundColor: 'var(--warning-light)',
-    hexCode: '#003365',
+    hexCode: '#FFD462',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Jal - Lighter',
+    name: 'Haldi - Lighter',
     backgroundColor: 'var(--warning-lighter)',
-    hexCode: '#003365',
+    hexCode: '#FFE597',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Jal - Lightest',
+    name: 'Haldi - Lightest',
     backgroundColor: 'var(--warning-lightest)',
-    hexCode: '#003365',
+    hexCode: '#FFF5C7',
     colorCode: 'rgb(0, 51, 101)',
   },
 ];
@@ -129,9 +127,9 @@ export const WARNING_COLORS = [
 
 ##### Jal
 
-<Row className='mb-10'>
-  <ColorComp colorData={PRIMARY_COLORS} />
-</Row>
+<div className='d-flex flex-wrap pb-6 mb-8'>
+  <Colors colorData={PRIMARY_COLORS} />
+</div>
 
 #### Secondary colors
 
@@ -139,12 +137,12 @@ export const WARNING_COLORS = [
 
 ##### Mirch
 
-<Row className='mb-10'>
-  <ColorComp colorData={ALERT_COLORS} />
-</Row>
+<div className='d-flex flex-wrap pb-6 mb-8'>
+  <Colors colorData={ALERT_COLORS} />
+</div>
 
 ##### Haldi
 
-<Row>
-  <ColorComp colorData={WARNING_COLORS} />
-</Row>
+<div className='d-flex flex-wrap pb-6'>
+  <Colors colorData={WARNING_COLORS} />
+</div>
