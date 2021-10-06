@@ -75,26 +75,21 @@ const rows = {
 const StoryComp = ({
   componentData,
   showArgsTable = true,
+  htmlData,
   propData = {},
 }) => {
   const testRef = useRef(null);
   const [zoom, setZoom] = useState(1);
-
   const [activeTab, setActiveTab] = React.useState(0);
 
   const [jsxCode, setJsxCode] = React.useState(
     getRawPreviewCode(componentData)
   );
 
-  const html = beautifyHTML(
-    renderToStaticMarkup(
-      <div>
-        <span>Hello</span>
-      </div>
-    ),
+  const html = beautifyHTML(htmlData,
     beautifyHTMLOptions
   );
-  const [htmlCode, setHtmlCode] = useState(`${html}`);
+  const [htmlCode, setHtmlCode] = useState(html);
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeButton, setActiveButton] = useState('React');
 
@@ -116,7 +111,7 @@ const StoryComp = ({
       }`}
       </style>
       <SyntaxHighlighter
-        language="javascript"
+        language='javascript'
         style={vs2015}
         showLineNumbers={true}
       >
@@ -128,24 +123,24 @@ const StoryComp = ({
   const copyCode = (val) =>
     navigator.clipboard.writeText(val);
 
-  const CopyComp = (props) => {
+  const CopyCode = (props) => {
     const { onClick } = props;
     return (
-      <div className="ml-auto d-flex">
+      <div className='ml-auto d-flex'>
         <img
           src={logo}
-          className="codesandBox-icon mr-6 align-self-center"
+          className='codesandBox-icon mr-6 align-self-center'
           onClick={(e) => {
             e.preventDefault();
             openSandbox(jsxCode);
           }}
         />
         <Icon
-          name="content_copy"
+          name='content_copy'
           size={20}
-          appearance="white"
+          appearance='white'
           onClick={onClick}
-          className="align-self-center cursor-pointer"
+          className='align-self-center cursor-pointer'
         />
       </div>
     );
@@ -175,42 +170,42 @@ const StoryComp = ({
 
   return (
     <>
-      <div className="pt-8 pb-8 d-flex w-100 m-auto flex-column align-items-center">
+      <div className='pt-8 pb-8 d-flex w-100 m-auto flex-column align-items-center'>
         <LiveProvider code={jsxCode} scope={imports}>
           <Card
-            shadow="light"
-            className="w-100 overflow-hidden"
+            shadow='light'
+            className='w-100 overflow-hidden'
           >
             <CardHeader>
-              <div className="d-flex justify-content-end">
+              <div className='d-flex justify-content-end'>
                 <Button
                   onClick={() => handleZoomIn()}
-                  icon="zoom_in"
-                  appearance="transparent"
+                  icon='zoom_in'
+                  appearance='transparent'
                   largeIcon
                   className='transformation-button'
                 ></Button>
                 <Button
                   onClick={() => handleZoomOut()}
-                  icon="zoom_out"
-                  appearance="transparent"
+                  icon='zoom_out'
+                  appearance='transparent'
                   largeIcon
-                  className="transformation-button"
+                  className='transformation-button'
                 ></Button>
               </div>
             </CardHeader>
-            <CardBody className="d-flex flex-column align-items-center">
+            <CardBody className='d-flex flex-column align-items-center'>
               <div ref={testRef}>
                 <LivePreview
-                  className="p-8 live-preview"
+                  className='p-8 live-preview'
                   style={{ zoom: zoom }}
                 />
                 <LiveError />
               </div>
-              <div className="d-flex flex-row-reverse w-100 mb-6">
+              <div className='d-flex flex-row-reverse w-100 mb-6'>
                 <Button
-                  appearance="basic"
-                  className="action-button"
+                  appearance='basic'
+                  className='action-button'
                   onClick={() => setIsExpanded(!isExpanded)}
                 >
                   {isExpanded ? 'Hide code' : 'Show code'}
@@ -221,25 +216,25 @@ const StoryComp = ({
 
           {isExpanded && (
             <Card
-              shadow="light"
-              className="w-100 overflow-hidden mt-6 live-editor-card"
+              shadow='light'
+              className='w-100 overflow-hidden mt-6 live-editor-card'
             >
               <div>
-                <div className="d-flex px-4 pt-6">
+                <div className='d-flex px-4 pt-6'>
                   <Button
-                    appearance="basic"
+                    appearance='basic'
                     onClick={() => setActiveButton('React')}
                     selected={
                       activeButton === 'React'
                         ? true
                         : false
                     }
-                    className="mr-3"
+                    className='mr-3'
                   >
                     React
                   </Button>
                   <Button
-                    appearance="basic"
+                    appearance='basic'
                     onClick={() => setActiveButton('HTML')}
                     selected={
                       activeButton === 'HTML' ? true : false
@@ -247,14 +242,17 @@ const StoryComp = ({
                   >
                     HTML
                   </Button>
-                  <CopyComp
-                    onClick={() => {
-                      const editor = document.querySelector(
-                        '.npm__react-simple-code-editor__textarea'
-                      );
-                      if (editor) copyCode(editor.value);
-                    }}
-                  />
+                  {activeButton === 'React' && (
+                    <CopyCode
+                      onClick={() => {
+                        const editor =
+                          document.querySelector(
+                            '.npm__react-simple-code-editor__textarea'
+                          );
+                        if (editor) copyCode(editor.value);
+                      }}
+                    />
+                  )}
                 </div>
               </div>
 
@@ -264,7 +262,7 @@ const StoryComp = ({
         </LiveProvider>
         {showArgsTable && (
           <>
-            <Heading className="mt-10 align-self-start">
+            <Heading className='mt-10 align-self-start'>
               Props
             </Heading>
             <ArgsTable rows={propData} />

@@ -45,3 +45,12 @@
   bottom: 70px;
   z-index: 1;
 }
+
+.rectangle {
+  background-color: var(--secondary-lightest);
+  border: var(--border);
+  border-radius: var(--spacing-m);
+  font-weight: var(--font-weight-bold);
+  display: inline-block;
+  padding: 0 var(--spacing-m) 0 var(--spacing-m);
+}

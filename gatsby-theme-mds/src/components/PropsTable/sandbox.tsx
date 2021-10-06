@@ -29,7 +29,7 @@ export default (jsxStoryCode: string) => {
     .trim()
     // @ts-ignore
     .replaceAll('// import', 'import')
-    .replace('() => {', 'const App = () => {')
+    .replace('() => ', 'const App = () => ')
     .replaceAll('<>', '<React.Fragment>')
     .replaceAll('</>', '</React.Fragment>');
   const code = `

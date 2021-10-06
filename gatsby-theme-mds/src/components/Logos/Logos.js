@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Card,
-  CardBody,
+  Column,
   Icon,
   Toast,
 } from '@innovaccer/design-system';
@@ -13,7 +13,9 @@ import { useLogoItems } from '../../util/Logos';
 const ProductLogos = (props) => {
   const nodes = useLogoItems();
 
-  return props.logoData.map((elt) => {
+  const { logoData, toggleToast } = props;
+
+  return logoData.map((elt) => {
     const filteredGatsbyImage = nodes.filter((img) => {
       if (img.fluid.src.includes(elt.imgName)) {
         return elt;
@@ -28,13 +30,13 @@ const ProductLogos = (props) => {
     }
 
     return (
-      <>
+      <Column size='4'>
         <Card className='mr-7 mt-7' shadow='none'>
-          <CardBody>
-            <div className='mt-6 container p-8'>
+          <div className='px-6'>
+            <div className='mt-6 px-8 py-8 container w-auto'>
               <GatsbyImage
                 image={image}
-                alt={'test'}
+                alt={elt.name}
                 className='image'
               />
             </div>
@@ -48,13 +50,13 @@ const ProductLogos = (props) => {
                   size={16}
                   name='download'
                   className='mr-3 imgName'
-                  onClick={() => props.toggleToast(elt.name)}
+                  onClick={() => toggleToast(elt.name)}
                 />
               </Link>
             </div>
-          </CardBody>
+          </div>
         </Card>
-      </>
+      </Column>
     );
   });
 };

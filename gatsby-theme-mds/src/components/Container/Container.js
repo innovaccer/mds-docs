@@ -30,7 +30,7 @@ const Container = ({
     }
     return tabSlug;
   };
-
+  
   const activeTab =
     tabs && tabs.length
       ? tabs.findIndex(
@@ -94,7 +94,7 @@ const Container = ({
           <Tabs
             activeIndex={activeIndex}
             onTabChange={onTabChangeHandler}
-            className='mb-6'
+            className='mb-6 mt-4'
           >
             {tabs.map((tab) => (
               <Tab label={tab}></Tab>

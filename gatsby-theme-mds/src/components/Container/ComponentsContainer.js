@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {
   Heading,
   Tabs,
-  Tab
+  Tab,
 } from '@innovaccer/design-system';
 import { navigate } from 'gatsby';
 
@@ -15,11 +15,21 @@ const ComponentsContainer = ({
 }) => {
   const page = relativePagePath.split('/');
   const pageName = page[page.length - 1].split('.')[0];
+
+  const getTabSlug = (tabIndex) => {
+    const tabName = tabs[tabIndex];
+    let tabSlug = '';
+    if (tabName.length) {
+      tabSlug = tabName.toLowerCase().replace(/\s/g, '-');
+    }
+    return tabSlug;
+  };
+
   const activeTab =
     tabs && tabs.length
       ? tabs.findIndex(
-          (tab) =>
-            tab.toLowerCase() === pageName.toLowerCase()
+          (tab, index) =>
+            getTabSlug(index) === pageName.toLowerCase()
         )
       : '';
 
@@ -27,20 +37,12 @@ const ComponentsContainer = ({
     activeTab || 0
   );
 
-  const getTabSlug = (tabIndex) => {
-    const tabSlug = tabs[tabIndex]
-      .toLowerCase()
-      .replace(' ', '-');
-    return tabSlug;
-  };
-
   const onTabChangeHandler = (tabIndex) => {
-    const tabSlug = getTabSlug(tabIndex);
-    const pagePath = relativePagePath.replace(
-      tabs[activeIndex].toLowerCase(),
-      tabSlug
-    );
-    navigate(`${pagePath.replace('.mdx', '')}/`);
+    const nextTabSlug = getTabSlug(tabIndex);
+    const pagePath = relativePagePath.split('/');
+    const pages = pagePath.slice(0, pagePath.length - 1);
+    const path = `${pages.join('/')}/${nextTabSlug}/`;
+    navigate(path);
     setActiveIndex(tabIndex);
   };
 
@@ -52,7 +54,7 @@ const ComponentsContainer = ({
         <Tabs
           activeIndex={activeIndex}
           onTabChange={onTabChangeHandler}
-          className='mb-6'
+          className='mb-6 mt-4'
         >
           {tabs.map((tab) => (
             <Tab label={tab}></Tab>

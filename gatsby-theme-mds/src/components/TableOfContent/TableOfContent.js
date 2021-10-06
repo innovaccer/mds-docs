@@ -18,8 +18,10 @@ const TableOfContent = (props) => {
     let urlHash = '';
     if (location && location.hash) {
       urlHash = location.hash;
+      setActive(urlHash);
+    } else {
+      navItems && navItems.length ? setActive(navItems[0].url) : '';
     }
-    setActive(urlHash);
   }, []);
 
   function renderItems(items, isChild = false) {
