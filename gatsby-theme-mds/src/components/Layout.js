@@ -80,6 +80,7 @@ const Layout = ({
   component,
   tabs,
   logos,
+  showMobile,
   ...rest
 }) => {
   const is404 = children && children.key === null;
@@ -216,6 +217,7 @@ const Layout = ({
           is404Page={is404}
           relativePagePath={relativePagePath}
           pageTitle={pageTitle}
+          showMobile={showMobile}
         />
         <Column className="page-animation" style={{height: '100%', overflowY: 'scroll', scrollBehavior: 'smooth'}}>
           <Row>
