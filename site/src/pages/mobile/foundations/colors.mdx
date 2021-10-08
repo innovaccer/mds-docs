@@ -5,6 +5,8 @@ date: 15 June 2021
 showMobile: true
 ---
 
+import ColorComp from '../../../../../gatsby-theme-mds/src/components/ColorComp/ColorComp.js';
+
 export const PRIMARY_COLORS = [
   {
     name: 'Jal - Darker',
@@ -15,31 +17,31 @@ export const PRIMARY_COLORS = [
   {
     name: 'Jal - Dark',
     backgroundColor: 'var(--primary-dark)',
-    hexCode: '#00509F',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Default',
     backgroundColor: 'var(--primary)',
-    hexCode: '#0070DD',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Light',
     backgroundColor: 'var(--primary-light)',
-    hexCode: '#4F9DE7',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lighter',
     backgroundColor: 'var(--primary-lighter)',
-    hexCode: '#97C5F0',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lightest',
     backgroundColor: 'var(--primary-lightest)',
-    hexCode: '#DCECF9',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
 ];
@@ -48,76 +50,76 @@ export const ALERT_COLORS = [
   {
     name: 'Jal - Darker',
     backgroundColor: 'var(--alert-darker)',
-    hexCode: '#631919',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Dark',
     backgroundColor: 'var(--alert-dark)',
-    hexCode: '#9C2828',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Default',
     backgroundColor: 'var(--alert)',
-    hexCode: '#D93737',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Light',
     backgroundColor: 'var(--alert-light)',
-    hexCode: '#EB776C',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lighter',
     backgroundColor: 'var(--alert-lighter)',
-    hexCode: '#F7ADA5',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
     name: 'Jal - Lightest',
     backgroundColor: 'var(--alert-lightest)',
-    hexCode: '#F9E2E2',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
 ];
 
 export const WARNING_COLORS = [
   {
-    name: 'Haldi - Darker',
+    name: 'Jal - Darker',
     backgroundColor: 'var(--warning-darker)',
-    hexCode: '#6B4A06',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Haldi - Dark',
+    name: 'Jal - Dark',
     backgroundColor: 'var(--warning-dark)',
-    hexCode: '#B78707',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Haldi - Default',
+    name: 'Jal - Default',
     backgroundColor: 'var(--warning)',
-    hexCode: '#FFC208',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Haldi - Light',
+    name: 'Jal - Light',
     backgroundColor: 'var(--warning-light)',
-    hexCode: '#FFD462',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Haldi - Lighter',
+    name: 'Jal - Lighter',
     backgroundColor: 'var(--warning-lighter)',
-    hexCode: '#FFE597',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
   {
-    name: 'Haldi - Lightest',
+    name: 'Jal - Lightest',
     backgroundColor: 'var(--warning-lightest)',
-    hexCode: '#FFF5C7',
+    hexCode: '#003365',
     colorCode: 'rgb(0, 51, 101)',
   },
 ];
@@ -128,9 +130,9 @@ export const WARNING_COLORS = [
 
 ##### Jal
 
-<div className='d-flex flex-wrap pb-6 mb-8'>
-  <Colors colorData={PRIMARY_COLORS} />
-</div>
+<Row className='mb-10'>
+  <ColorComp colorData={PRIMARY_COLORS} />
+</Row>
 
 #### Secondary colors
 
@@ -138,12 +140,12 @@ export const WARNING_COLORS = [
 
 ##### Mirch
 
-<div className='d-flex flex-wrap pb-6 mb-8'>
-  <Colors colorData={ALERT_COLORS} />
-</div>
+<Row className='mb-10'>
+  <ColorComp colorData={ALERT_COLORS} />
+</Row>
 
 ##### Haldi
 
-<div className='d-flex flex-wrap pb-6'>
-  <Colors colorData={WARNING_COLORS} />
-</div>
+<Row>
+  <ColorComp colorData={WARNING_COLORS} />
+</Row>

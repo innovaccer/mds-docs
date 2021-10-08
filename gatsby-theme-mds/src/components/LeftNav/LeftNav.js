@@ -11,7 +11,7 @@ import { MOBILE } from '../../util/constants';
 const isBrowser = typeof window !== 'undefined';
 
 const LeftNav = (props) => {
-  const { relativePagePath } = props;
+  const { relativePagePath, showMobile } = props;
   let navItems = useNavItems(relativePagePath);
   
   const [expanded, setExpanded] = React.useState(true);
@@ -71,29 +71,33 @@ const LeftNav = (props) => {
   };
 
   return (
-    <div className="h-100 bg-secondary-lightest border-right">
-      <div className="d-flex py-6 pl-6">
-        <Button
-          appearance="basic"
-          size="regular"
-          className="mr-4"
-          onClick={() => handleNavigate()}
-          selected={!relativePagePath.includes(MOBILE)}
-          expanded
-        >
-          Web
-        </Button>
-        <Button
-          appearance="basic"
-          onClick={() => handleNavigate(MOBILE)}
-          selected={relativePagePath.includes(MOBILE)}
-          className="mr-6"
-          expanded
-        >
-          Mobile
-        </Button>
-      </div>
-      <Subheading className="pl-6 pb-3" appearance='subtle'>{getHeading()}</Subheading>
+    <div className='h-100 bg-secondary-lightest border-right'>
+      {showMobile && (
+        <div className='d-flex pt-6 pl-6'>
+          <Button
+            appearance='basic'
+            size='regular'
+            className='mr-4'
+            onClick={() => handleNavigate()}
+            selected={!relativePagePath.includes(MOBILE)}
+            expanded
+          >
+            Web
+          </Button>
+          <Button
+            appearance='basic'
+            onClick={() => handleNavigate(MOBILE)}
+            selected={relativePagePath.includes(MOBILE)}
+            className='mr-6'
+            expanded
+          >
+            Mobile
+          </Button>
+        </div>
+      )}
+      <Subheading className='pl-6 pt-6 pb-3' appearance='subtle'>
+        {getHeading()}
+      </Subheading>
       <VerticalNav
         menus={navItems}
         active={active}

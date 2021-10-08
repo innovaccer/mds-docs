@@ -1,6 +1,6 @@
 base: components
 menus:
   - label: Overview
-    link: /components/overview/tabs/all-components
+    link: /components/overview/tabs/all-components/
   - label: Buttons
     link: /components/button/usage/
