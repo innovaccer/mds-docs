@@ -2,22 +2,8 @@
 title: Logos
 description: Logos are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
 date: 15 June 2021
-logos:
-  [
-    'dap',
-    'default',
-    'inacademy',
-    'inapi',
-    'incare',
-    'inconnect',
-    'indata',
-    'ingraph',
-    'innote',
-    'inoffice',
-    'inreport',
-    'P360',
-    'withoutType',
-  ]
+showMobile: true
+logos: ['dap', 'default', 'inacademy', 'inapi', 'incare', 'inconnect', 'indata', 'ingraph','innote', 'inoffice', 'inreport', 'P360', 'withoutType']
 ---
 
 export const ORGANIZATION_LOGOS = [
@@ -76,8 +62,12 @@ export const PRODUCTS_LOGOS = [
 
 #### Organization
 
-<Logos logoData={ORGANIZATION_LOGOS} />
+<Row className='mb-10'>
+  <Logos logoData={ORGANIZATION_LOGOS} />
+</Row>
 
 #### Products
 
-<Logos logoData={PRODUCTS_LOGOS} />
+<Row>
+  <Logos logoData={PRODUCTS_LOGOS} />
+</Row>

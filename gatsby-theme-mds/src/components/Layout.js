@@ -19,6 +19,7 @@ import Meta from './Meta';
 import '../css/style.css';
 import PropsTable from '../components/PropsTable/index';
 import jsonData from '../util/componentsData/StorybookData.json';
+import htmlData from '../util/componentsData/htmlData.json';
 import Rules from './Rules/Rules';
 import DOs from './Rules/DOs';
 import DONTs from './Rules/DONTs';
@@ -101,6 +102,21 @@ const Layout = ({
     return jsxCode;
   }
 
+    function getHTMLCode(name) {
+      let keys = Object.keys(htmlData).filter((key) =>
+        key.includes(pageTitle.toLowerCase())
+      );
+      
+      const variantName = keys.filter((elt) =>
+        elt.includes(name)
+      );
+
+      const jsxCode = variantName.length
+        ? htmlData[variantName[0]].html
+        : '';
+      return jsxCode;
+    }
+
   function getPropTableData(name) {
     let keys = Object.keys(jsonData).filter((key) =>
       key.includes(pageTitle.toLowerCase())
@@ -109,7 +125,6 @@ const Layout = ({
     const variantName = keys.filter((elt) =>
       elt.includes(name)
     );
-
     const jsxCode = variantName.length
       ? jsonData[variantName[0]].parameters.argTypes
       : '';
@@ -123,6 +138,7 @@ const Layout = ({
         <PropsTable
           componentData={getJsxCode(name)}
           showArgsTable={false}
+          htmlData={getHTMLCode(name)}
         />
       </>
     );
@@ -151,12 +167,16 @@ const Layout = ({
 
   const Logos = ({ children, logoData, ...rest }) => {
     return (
-      <div className='d-flex flex-wrap pb-6 mb-8'>
         <ProductLogos
           logoData={logoData}
           toggleToast={toggleToast}
         />
-      </div>
+    );
+  };
+
+  const Rectangle = ({ name, ...rest }) => {
+    return (
+      <div className='rectangle'>{name}</div>
     );
   };
 
@@ -177,6 +197,7 @@ const Layout = ({
     h5: (props) => <Heading size='s' {...props} />,
     ul: List,
     Logos: (props) => <Logos {...props} />,
+    Rectangle: (props) => <Rectangle {...props} />,
   };
   return (
     <>

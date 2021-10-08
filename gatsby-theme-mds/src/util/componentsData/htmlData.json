@@ -1,0 +1,23 @@
+{
+  "components-button-alert-button--alert-button": {
+    "html": "<button data-test=\"DesignSystem-Button\" class=\"Button Button--regular Button--alert Button--iconAlign-left\" tabindex=\"0\">Delete</button>"
+  },
+  "components-button-basic-button--basic-button": {
+    "html": "<button data-test=\"DesignSystem-Button\" class=\"Button Button--regular Button--basic Button--iconAlign-left\" tabindex=\"0\">Cancel</button>"
+  },
+  "components-button-primary-button--primary-button": {
+    "html": "<button data-test=\"DesignSystem-Button\" class=\"Button Button--regular Button--primary Button--iconAlign-left\" tabindex=\"0\">Submit</button>"
+  },
+  "components-button-transparent-button--transparent-button": {
+    "html": "<button data-test=\"DesignSystem-Button\" class=\"Button Button--regular Button--transparent Button--iconAlign-left\" tabindex=\"0\">Re-evaluate</button>"
+  },
+  "components-button-expanded-button--expanded-button": {
+    "html": "<button data-test=\"DesignSystem-Button\" class=\"Button Button--expanded Button--large Button--primary Button--iconAlign-left\" tabindex=\"0\">Login</button>"
+  },
+  "components-button-icon-left-button--icon-left-button": {
+    "html": "<button data-test=\"DesignSystem-Button\" class=\"Button Button--regular Button--basic Button--iconAlign-left\" tabindex=\"0\"> <div class=\"Button-icon Button-icon--left\"><i data-test=\"DesignSystem-Button--Icon\" class=\"material-icons material-icons-round Icon Icon--default\" style=\"font-size:16px;width:16px\">get_app_round</i></div>Download</button>"
+  },
+  "components-button-icon-right-button--icon-right-button": {
+    "html": "<button data-test=\"DesignSystem-Button\" class=\"Button Button--regular Button--basic Button--iconAlign-right\" tabindex=\"0\"> <div class=\"Button-icon Button-icon--right\"><i data-test=\"DesignSystem-Button--Icon\" class=\"material-icons material-icons-round Icon Icon--default\" style=\"font-size:16px;width:16px\">arrow_forward_round</i></div>Next in rank</button>"
+  }
+}
