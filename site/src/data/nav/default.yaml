@@ -3,21 +3,9 @@ menus:
   - label: Get started
     subMenu:
       - label: Developers
-        link: /developers
+        link: /introduction/get-started/developers/
       - label: Designers
-        link: /designers
+        link: /introduction/get-started/designers/
 
   - label: What's new
-    link: /new
-
-  - label: Contents
-    subMenu:
-      - label: Voice and tone guides
-        link: /contents/voice-and-tone-guidelines
-      - label: Button guidelines
-        link: /contents/button-guidelines
-
-  - label: Components
-    subMenu: 
-      - label: Overview
-        link: /components/overview
+    link: /introduction/what's-new/

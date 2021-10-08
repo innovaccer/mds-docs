@@ -184,12 +184,10 @@ const Layout = ({
 
     const Colors = ({ children, colorData, ...rest }) => {
       return (
-        <div className='d-flex flex-wrap pb-6 mb-8'>
-          <ProductColors
-            colorData={colorData}
-            toggleToast={toggleToast}
-          />
-        </div>
+        <ProductColors
+          colorData={colorData}
+          toggleToast={toggleToast}
+        />
       );
     };
 
