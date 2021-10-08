@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useNavItems } from '../../util/NavItems';
 import {
   VerticalNav,
@@ -39,10 +39,13 @@ const LeftNav = (props) => {
     }
   }
 
-  const activeLink = isBrowser ? getActiveNavItem() : '';
-  const [active, setActive] = React.useState({
-    link: activeLink,
-  });
+  const [active, setActive] = React.useState();
+
+  useEffect(() => {
+    const active = isBrowser ? getActiveNavItem() : '';
+    const obj = {link: active}
+    setActive(obj);
+  }, []);
 
   const onClickHandler = (menu) => {
     navigate(menu.link);

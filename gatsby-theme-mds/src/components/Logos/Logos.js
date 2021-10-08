@@ -50,7 +50,7 @@ const ProductLogos = (props) => {
                   size={16}
                   name='download'
                   className='mr-3 imgName'
-                  onClick={() => toggleToast(elt.name)}
+                  onClick={() => props.toggleToast(`Downloading ${elt.name}`)}
                 />
               </Link>
             </div>

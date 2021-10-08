@@ -27,6 +27,7 @@ import InlineMessage from './Rules/InlineMessage';
 import IconWrapper from './Rules/IconWrapper';
 import Footer from './Footer/Footer';
 import ProductLogos from '../components/Logos/Logos';
+import ProductColors from '../components/Colors/Colors';
 
 const copyToClipboard = (str) => {
   let codeBlock = '';
@@ -83,8 +84,8 @@ const Layout = ({
   ...rest
 }) => {
   const is404 = children && children.key === null;
-  const [showToast, setShowToast] = useState(false);
-  const [imageName, setImageName] = useState(false);
+  const [isToastActive, setIsToastActive] = useState(false);
+  const [toastTitle, setToastTitle] = useState('');
 
   function getJsxCode(name) {
     let keys = Object.keys(jsonData).filter((key) =>
@@ -161,8 +162,8 @@ const Layout = ({
   };
 
   const toggleToast = (name) => {
-    setShowToast(true);
-    setImageName(name);
+    setIsToastActive(true);
+    setToastTitle(name);
   }
 
   const Logos = ({ children, logoData, ...rest }) => {
@@ -179,6 +180,17 @@ const Layout = ({
       <div className='rectangle'>{name}</div>
     );
   };
+
+    const Colors = ({ children, colorData, ...rest }) => {
+      return (
+        <div className='d-flex flex-wrap pb-6 mb-8'>
+          <ProductColors
+            colorData={colorData}
+            toggleToast={toggleToast}
+          />
+        </div>
+      );
+    };
 
   const DSComponents = {
     ...MDSComponents,
@@ -198,6 +210,7 @@ const Layout = ({
     ul: List,
     Logos: (props) => <Logos {...props} />,
     Rectangle: (props) => <Rectangle {...props} />,
+    Colors: (props) => <Colors {...props} />,
   };
   return (
     <>
@@ -260,12 +273,12 @@ const Layout = ({
               />
             </Column>
           </Row>
-          {showToast && (
+          {isToastActive && (
             <Toast
               appearance='success'
-              title={`Downloading ${imageName}`}
+              title={toastTitle}
               className='toast'
-              onClose={() => setShowToast(false)}
+              onClose={() => setIsToastActive(false)}
             />
           )}
           <Footer relativePagePath={relativePagePath} />
