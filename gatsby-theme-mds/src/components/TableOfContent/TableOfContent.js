@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavItems } from '../../util/InPageNavItems';
 import { Subheading } from '@innovaccer/design-system';
+import { Link } from 'gatsby';
 import './TableOfContent.css';
 
 const TableOfContent = (props) => {
@@ -35,10 +36,10 @@ const TableOfContent = (props) => {
                   active == item.url ? 'active-link' : ''
                 }`}
               >
-                <a
-                  href={item.url}
+                <Link
+                  to={item.url}
                   onClick={() => onClickHandler(item.url)}
-                  className={`toc-link `}
+                  className='toc-link'
                   style={{
                     display: `${
                       item.title ? 'inline-block' : 'none'
@@ -46,7 +47,7 @@ const TableOfContent = (props) => {
                   }}
                 >
                   {item.title}
-                </a>
+                </Link>
               </div>
               {item.items &&
                 (tocLevelCount++,
