@@ -5,6 +5,7 @@ import {
   Tabs,
   Tab,
   Button,
+  TabsWrapper
 } from '@innovaccer/design-system';
 import { navigate } from 'gatsby';
 import { useLogoItems } from '../../util/Logos';
@@ -91,15 +92,15 @@ const Container = ({
       {tabs && tabs.length && (
         <>
           <Paragraph>{pageDescription}</Paragraph>
-          <Tabs
-            activeIndex={activeIndex}
+          <TabsWrapper
+            active={activeIndex}
             onTabChange={onTabChangeHandler}
             className='mb-6 mt-4'
           >
             {tabs.map((tab) => (
               <Tab label={tab}></Tab>
             ))}
-          </Tabs>
+          </TabsWrapper>
         </>
       )}
       {children}

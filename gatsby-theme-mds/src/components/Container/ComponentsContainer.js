@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {
   Heading,
   Tabs,
+  TabsWrapper,
   Tab,
 } from '@innovaccer/design-system';
 import { navigate } from 'gatsby';
@@ -51,15 +52,15 @@ const ComponentsContainer = ({
       <Heading>{pageTitle}</Heading>
       <p>{pageDescription}</p>
       {tabs && tabs.length && (
-        <Tabs
-          activeIndex={activeIndex}
+        <TabsWrapper
+          active={activeIndex}
           onTabChange={onTabChangeHandler}
           className='mb-6 mt-4'
         >
           {tabs.map((tab) => (
             <Tab label={tab}></Tab>
           ))}
-        </Tabs>
+        </TabsWrapper>
       )}
       {children}
     </>
