@@ -9,7 +9,7 @@ const Header = ({ relativePagePath }) => {
   const items = useHeaderItems();
   return (
     <div
-      className='header'
+      className='header bg-light'
     >
       <Link to='/' className='HeaderLink ml-0'>
         <img src={logo} />

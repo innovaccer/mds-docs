@@ -21,6 +21,11 @@
   animation-fill-mode: forwards;
 }
 
+.page-scroll {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 .list {
   margin-top: var(--spacing-m);
 }

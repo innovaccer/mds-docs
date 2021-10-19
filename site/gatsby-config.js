@@ -3,5 +3,13 @@ require("dotenv").config({
 })
 
 module.exports = {
-  plugins: [{ resolve: `gatsby-theme-mds`, options: {} }],
+  plugins: [
+    { resolve: `gatsby-theme-mds`, options: {} },
+    {
+      resolve: `gatsby-source-medium`,
+      options: {
+        username: `innovaccer-tech`,
+      },
+    }
+  ],
 }
