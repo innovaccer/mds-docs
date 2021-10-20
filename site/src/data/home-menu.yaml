@@ -14,7 +14,7 @@
   link: /components/overview/tabs/all-components/
   content: Components are the reusable building blocks of our design system and are combined together to form intuitive patterns.
   icon: widgets
-  appearance: warning
+  appearance: alert
 
 - name: Patterns
   link: /patterns/
