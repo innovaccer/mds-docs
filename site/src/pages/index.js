@@ -32,6 +32,32 @@ const Home = () => {
 
   const releaseDate = new Date(changelog.releaseDate).toString().slice(3, 15);
 
+  const getChangelogContent = () => (
+    changelog.updatesList.slice(0, 2).map((updates) => {
+      return (
+        updates.map((item, key) => {
+          return (
+            key < 3 &&
+            (
+              key === 0 ?
+                <div className="mt-4">
+                  <Text weight='strong' className="home-text-color">{item}</Text>
+                </div>
+                :
+                <div className="list">
+                  <li className="m-0">
+                    <Text appearance='subtle' size='small' weight='medium'>
+                      {item.substring(0, item.lastIndexOf('('))}
+                    </Text>
+                  </li>
+                </div>
+            )
+          )
+        })
+      )
+    })
+  )
+
   return (
     <Homepage relativePagePath={'/404'} is404={true}>
       <Meta titleType='page' pageTitle='Masala Design System' />
@@ -42,7 +68,9 @@ const Home = () => {
             <Row className="align-items-center">
               <Column>
                 <Text weight='medium'>Welcome to</Text>
-                <Heading size='xl' className='mt-2 home-text-color'>Masala Design System</Heading>
+                <Heading size='xl' className='mt-2 home-text-color'>
+                  Masala Design System
+                </Heading>
                 <Heading size='m' className='mt-4 font-weight--normal home-text-color'>
                   Designers, developers, product managers, and UXer's use
                   Innovaccer's Masala Design System to build products effortlessly,
@@ -58,7 +86,7 @@ const Home = () => {
                 <br />
               </Column>
               <Column>
-                <img src={BannerImg} width="100%" alt="banner_img" />
+                <img src={BannerImg} width="100%" height="100%" alt="banner_img" />
               </Column>
             </Row>
           </section>
@@ -89,7 +117,9 @@ const Home = () => {
                             </div>
 
                             <div>
-                              <Heading size='s' className='mb-4 home-text-color'>{menuItem.name}</Heading>
+                              <Heading size='s' className='mb-4 home-text-color'>
+                                {menuItem.name}
+                              </Heading>
                               <Text appearance='subtle' className='font-weight--normal'>
                                 {menuItem.content}
                               </Text>
@@ -112,41 +142,21 @@ const Home = () => {
                   shadow='none'
                 >
                   <div className='d-flex'>
-                    <Heading size='m' className='mb-4 home-text-color'>Masala Design System v{(changelog.version).trim()}</Heading>
+                    <Heading size='m' className='mb-3 home-text-color'>
+                      Masala Design System v{(changelog.version).trim()}
+                    </Heading>
                     <div>
                       <Badge appearance="success" className='ml-4 mt-3'> NEW </Badge>
                     </div>
                   </div>
-                  <div>
+                  <div className='mb-6'>
                     <Subheading appearance="subtle">{releaseDate}</Subheading>
                     <div>
-                      {changelog.updatesList.map((updates) => {
-                        return (
-                          updates.map((item, key) => {
-                            if (key === 0) {
-                              return (
-                                <div className="mt-4">
-                                  <Text weight='strong' className="home-text-color">{item}</Text>
-                                </div>
-                              )
-                            } else {
-                              return (
-                                <div className="list">
-                                  <li>
-                                    <Text appearance='subtle' size='small' weight='medium'>
-                                      {item}
-                                    </Text>
-                                  </li>
-                                </div>
-                              )
-                            }
-                          })
-                        )
-                      })
-                      }
+                      {getChangelogContent()}
                     </div>
-                    <Link href={'/introduction/what\'s-new/'}> View all updates</Link>
                   </div>
+
+                  <Link href={'/introduction/what\'s-new/'}> View all updates</Link>
                 </Card>
               </Column>
               <Column size={6}>
@@ -154,15 +164,17 @@ const Home = () => {
                   className='p-6 mr-6 h-100 overflow-visible'
                   shadow='none'
                 >
-                  <Heading size='m' className="home-text-color">Blogs by Innovaccer Design</Heading>
-                  <br />
-
+                  <Heading size='m' className="home-text-color mb-5">Blogs by Innovaccer Design</Heading>
                   {
                     mediumBlogList.map((blog, key) => {
                       return (
-                        <div className="d-flex mb-7" key={key}>
+                        <div className={`d-flex ${key === 2 ? 'mb-0' : 'mb-5'}`} key={key}>
                           <div>
-                            <img src={`https://miro.medium.com/fit/c/28/28/${blog.author.imageId}`} alt="author_img" className="border-radius--rounded mr-4" />
+                            <img
+                              src={`https://miro.medium.com/fit/c/28/28/${blog.author.imageId}`}
+                              alt="author_img"
+                              className="border-radius--rounded mr-4"
+                            />
                           </div>
                           <div>
                             <Link href={`https://medium.com/innovaccer-design/${blog.uniqueSlug}`} target="_blank" >
@@ -177,9 +189,16 @@ const Home = () => {
                       )
                     })
                   }
-                  <Link href='https://medium.com/innovaccer-tech' target="_blank">
-                    More blogs
-                  </Link>
+                  <div
+                    className="position-absolute sticky-bottom"
+                  >
+                    <Link
+                      href='https://medium.com/innovaccer-tech'
+                      target="_blank"
+                    >
+                      More blogs
+                    </Link>
+                  </div>
                 </Card>
               </Column>
             </Row>
@@ -222,7 +241,8 @@ const Home = () => {
                       <Column>
                         <Heading size='m' className="mb-2 home-text-color">Storybook</Heading>
                         <Text appearance='subtle' className='font-weight--normal'>
-                          Use our open source UI library of react components to streamline development                        </Text>
+                          Use our open source UI library of react components to streamline development
+                        </Text>
                       </Column>
                     </Row>
                   </Card>
@@ -242,7 +262,8 @@ const Home = () => {
                       <Column>
                         <Heading size='m' className="mb-2 home-text-color">Design Tokens</Heading>
                         <Text appearance='subtle' className='font-weight--normal'>
-                          Use our Masala Design System UI Kit to mock up pages and prototypes.                        </Text>
+                          Use our Masala Design System UI Kit to mock up pages and prototypes.
+                        </Text>
                       </Column>
                     </Row>
                   </Card>

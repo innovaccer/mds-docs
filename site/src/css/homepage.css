@@ -13,3 +13,7 @@
 .home-text-color {
   color: #151414;
 }
+
+.sticky-bottom {
+  bottom: var(--spacing-2);
+}
